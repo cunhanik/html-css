@@ -1,0 +1,254 @@
+
+Vamos iniciar agora o projeto para juntar as duas coisas: Site de vendas (sneakers/sapatilhas/tenis)
+então vamos:
+-criar uma pasta com o nome "imagens"
+-fazer dowload das imagens e colar nessa pasta
+-criar o ficheiro "index.html"
+-criar uma pasta com o nome "css"
+-criar o ficheiro "styles.css" dentro da pasta "css"
+-linkar o css ao nosso html <link rel="css/stylesheet" href="style.css">
+
+o nosso codigo fica:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+</body>
+</html>
+
+Agora vamos dividir o nosso codigo de html por partes:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>									//barra de navegação,logo,nome da empresa, coisas que costumam estar no topo
+        <h1>Galeria de sneakers</h1>					//titulo
+    </header>
+    <!-- Grid de produtos -->							//As nossas imagens dos nossos produtos, onde é possivel o cliente comprar os produtos ou ter mais detalhes
+    <main class="container">							//Conteudo principal. class container é comum quando vamos ter muitos elementos dentro
+        <section class="products-container">				//Esta section serve para separar as coisas, porque esta section vai ter uma cor diferente de fundo, letra,etc
+		<div class="card">						//Para mostrar o card de cada produto: imagem,nome,descriçao e botão de saiba mais. Vai se repetir 6x 6ximg
+	            <div class="product-image" id="img-1"></div>	//Normalmente usamos a tag img, mas como as imagens nao estão redimensionadas, usamos isto para a img nao ficar gigante
+			<h3> sneaker 1</h3>					//titulo do produto
+			<p>Este sneaker é muito bom pelo facto de...</p>//comentario/descrição do produto
+			<p><span class="bold">129$</span></p>          //preço, a utilizar a class bold (mesma que o rodapé)
+			<a href="#" class="btn">Comprar</a>			//hiperligação para "#"(nada)
+		</div>
+        </section>
+    </main>
+    <!-- Rodapé -->
+    <footer>									//nome da empresa, copyright, barra de navegação, links uteis, contactos, etc
+        <p><span class="bold">Galeria dos Sneakers</span>		//paragro com class bold, torna o texto em negrito
+        &copy; Claudio Cunha 2022</p>
+    </footer>
+</body>
+</html>
+
+Com isto tudo, agora falta:
+-ter o produto 6x, vamos copiar a parte do produto,a estrutura do "card" ate termos 6!
+-Mudar as imagens (nome ao que corresponde o produto)
+-Mudar o nome do produto <h3>
+
+<div class="card">						//Para mostrar o card de cada produto: imagem,nome,descriçao e botão de saiba mais. Vai se repetir 6x 6ximg
+      <div class="product-image" id="img-1"></div>	//Normalmente usamos a tag img, mas como as imagens nao estão redimensionadas, usamos isto para a img nao ficar gigante
+	<h3> sneaker 1</h3>					//titulo do produto
+	<p>Este sneaker é muito bom pelo facto de...</p>//comentario/descrição do produto
+	<p><span class="bold">129$</span></p>          //preço, a utilizar a class bold (mesma que o rodapé)
+	<a href="#" class="btn">Comprar</a>			//hiperligação para "#"(nada)
+</div>
+
+
+e o nosso codigo fica:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Galeria de sneakers</h1>
+    </header>
+    <!-- Grid de produtos -->
+    <main class="container">
+        <section class="produts-container">
+        <div class="card">
+            <div class="product-image" id="img-1"></div>
+            <h3>Sneaker 1</h3>
+            <p>Este sneaker é muito bom pelo facto de...</p>
+            <p><span class="bold">129$</span></p>
+            <a href="#" class="btn">Comprar</a>
+        </div>
+        <div class="card">
+            <div class="product-image" id="img-2"></div>
+            <h3>Sneaker 2</h3>
+            <p>Este sneaker é muito bom pelo facto de...</p>
+            <p><span class="bold">129$</span></p>
+            <a href="#" class="btn">Comprar</a>
+        </div>
+        <div class="card">
+            <div class="product-image" id="img-3"></div>
+            <h3>Sneaker 3</h3>
+            <p>Este sneaker é muito bom pelo facto de...</p>
+            <p><span class="bold">129$</span></p>
+            <a href="#" class="btn">Comprar</a>
+        </div>
+        <div class="card">
+            <div class="product-image" id="img-4"></div>
+            <h3>Sneaker 4</h3>
+            <p>Este sneaker é muito bom pelo facto de...</p>
+            <p><span class="bold">129$</span></p>
+            <a href="#" class="btn">Comprar</a>
+        </div>
+        <div class="card">
+            <div class="product-image" id="img-5"></div>
+            <h3>Sneaker 5</h3>
+            <p>Este sneaker é muito bom pelo facto de...</p>
+            <p><span class="bold">129$</span></p>
+            <a href="#" class="btn">Comprar</a>
+        </div>
+        <div class="card">
+            <div class="product-image" id="img-6"></div>
+            <h3>Sneaker 6</h3>
+            <p>Este sneaker é muito bom pelo facto de...</p>
+            <p><span class="bold">129$</span></p>
+            <a href="#" class="btn">Comprar</a>
+        </div>
+        </section>
+    </main>
+    <!-- Rodapé -->
+    <footer>
+        <p><span class="bold">Galeria dos Sneakers</span>
+        &copy; Claudio Cunha 2022</p>
+    </footer>
+</body>
+</html>
+
+Agora vamos abrir o nosso css:
+
+* {							//todos os elementos por default:
+    padding: 0;					//Espaço interno 0
+    margin: 0;					//Espaço externo 0
+    box-sizing: border-box;			//Faz com que só acrescente os valores que dissermos, sem somar nada pq quando colocamos padding num elemento, ele soma a largura e altura
+    font-family: helvetica;			//Tamanho e tipo de letra, font sem serifa
+}
+
+/*cabeçalho/*
+
+header{
+    background-color: #3db36b;		//cor de fundo verde
+    color: white;					//cor da letra branco
+    padding: 15px;				//Espaço interno 15px
+    text-align: center;				//texto ao centro
+    border-bottom: 3px solid #0f642f;	//borda por baixo com 3px verde
+}
+
+/*grid de produtos*/
+.container{
+    background-color: #EEE;			//cor de fundo cinza claro
+    min-height: 60vh;				//minimo de altura 60vh (60% da nossa tela é o container cinza claro, ajuda a que o rodapé fique no fundo)
+    padding: 50px;				//Espaço de 50 px
+}
+
+.products-container{
+    max-width: 1200px;				//largura maxima 1200px
+    margin: 0 auto;				//margem 0, auto. Isto vai fazer com que o conteudo fique centralizado. 0px para cima e para baixo, auto nas laterais
+}
+
+.card{
+    width: 31%;					//largura de 31%;			#No total temos 33% de largura(width 31 + margin 1+1),porque queremos que estejam 3 img. 100/3=33
+    display: inline-block;			//os elementos ficam em linha (ocupa só o espaço do bloco)
+    margin: 1% 1%;				//margem de 1% em cima e baixo +1% nos lados   #No total temos 33% de largura(margin 1+1 width 31), porque queremos que estejam 3 img. 100/3=33
+    padding: 15px;				//Espaçamento interno
+}
+.product-image{
+    height: 300px;				//altura de 300px
+    width: 100%;					//largura de 100%			#estes dois comandos ja deixam a nossa imagem num quadrado grande
+    margin-bottom: 10px;			//para afastar a imagem do conteudo
+    background-position: center;		//Centraliza a imagem. Sem isto, ao invés da sapatilha, ia aparecer qq coisa ampliada
+    background-size: cover;			//Redimensiona a imagem, tenta mostrar o maximo possivel da imagem na area que temos
+}
+
+h3{
+    margin-bottom: 10px;			//para afastar o texto do conteudo
+    color:#3db36b;				//cor da letra verde
+    border-left: 5px solid #0f642f;		//borda no lado esquerdo verde
+    padding-left: 7px;				//espaço interno lado esquerdo 7 px
+    font-size: 24px;				//Tamanho da letra
+}
+
+.card p{
+    margin-bottom: 10px;			//para afastar o texto do conteudo
+}
+.btn{
+    display: block;				//os elementos ficam em bloco (ocupar a linha toda)
+    width: 100%;					//largura de 100%
+    text-align: center;				//texto ao centro
+    text-transform: uppercase;		//texto todo em maiuscula
+    text-decoration: none;			//tirar o sublinhado do botão
+    background-color: #3db36b;		//cor de fundo verde
+    color: white;					//cor da letra branco
+    padding: 15px;				//espaço interno do botão 15px
+    border-radius: 5px;				//bordas redondas
+    transition: 0.5s;				//Efeito do preenchimento do botão quando o rato passa por cima (por causa do hover) de 0.5 segundos 
+}
+.btn:hover{
+    background-color: #0f642f;		//Cor de fundo verde
+}
+.bold {
+    font-weight: bold;							//grossura negrito
+}
+
+#img-1{
+    background-image: url("/imagens/tenis1.jpg");		//colocar a img pelo css
+}
+
+#img-2{
+    background-image: url("/imagens/tenis2.jpg");   		//colocar a img pelo css
+}
+
+#img-3{
+    background-image: url("/imagens/tenis3.jpg");		//colocar a img pelo css
+}
+
+#img-4{
+    background-image: url("/imagens/tenis4.jpg");		//colocar a img pelo css
+}
+
+#img-5{
+    background-image: url("/imagens/tenis5.jpg");		//colocar a img pelo css
+}
+
+#img-6{
+    background-image: url("/imagens/tenis6.jpg");		//colocar a img pelo css
+}
+
+/*footer*/
+footer {
+    background-color: #3db36b;		//cor de fundo
+    color: white;					//cor da letra
+    border-top: 3px solid #0f642f;		//borda em cima com 3px
+    text-align: center;				//texto centrado
+    padding: 80px;				//espaço interno 80px;
+}

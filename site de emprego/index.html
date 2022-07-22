@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empregos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/0d22ec1ed3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <div class="nav-container">
+                    <a href="index.html">
+                        <img id="logo" src="img/logo.png" alt="jobfinder">
+                    </a>
+                    <i class="fas fa-bars btn-menumobile"></i>
+                    <ul>
+                        <li><a href="findjobs.html">Encontrar vaga</a></li>
+                        <li><a href="sendjobs.html">Enviar candidatura</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div id="main-banner">
+                <div id="search-form">
+                    <h1>A maneira mais facil de encontrar emprego</h1>
+                    <p>liga-te de forma gratuita às melhores empresas e consegue o emprego dos teus sonhos</p>
+                    <form>
+                        <input type="text" name="job" id="job" placeholder="Escreve o teu cargo">
+                        <select name="city" id="city">
+                            <option value="">Todas as cidades</option>
+                        </select>
+                        <select name="category" id="category">
+                            <option value="">Categoria</option>
+                        </select>
+                        <input type="submit" value="Pesquisar">
+                    </form>
+                </div>
+            </div>
+        </header>
+        <main id="lastjobs-container"class="wrapper">
+            <h1>Últimas vagas enviadas</h1>
+            <ul>
+                <li>
+                    <a href="job.html"class="clickarea">
+                        <div class="company-box">
+                            <img src="/img/googlelogo.png" alt="imagem da google">
+                            <div class="company-info">
+                                <h3>Developer</h3>
+                                <p>Google</p>
+                            </div>
+                        </div>
+                        <div class="locality">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Mountain View, California</p>
+                        </div>
+                        <div class="job-type">
+                            <span class="clt">CLT</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"class="clickarea">
+                        <div class="company-box">
+                            <img src="/img/ibmlogo.png" alt="imagem da ibm">
+                            <div class="company-info">
+                                <h3>DBA</h3>
+                                <p>IBM</p>
+                            </div>
+                        </div>
+                        <div class="locality">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Armonk, New York</p>
+                        </div>
+                        <div class="job-type">
+                            <span class="pj">PJ</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"class="clickarea">
+                        <div class="company-box">
+                            <img src="/img/linkedinlogo.png" alt="imagem do linkedin">
+                            <div class="company-info">
+                                <h3>Front-End Developer</h3>
+                                <p>Linkedin</p>
+                            </div>
+                        </div>
+                        <div class="locality">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Sunnyvale, California</p>
+                        </div>
+                        <div class="job-type">
+                            <span class="homeoffice">Home Office</span>
+                        </div>
+                    </a>
+                </li>                
+                <li>
+                    <a href="#"class="clickarea">
+                        <div class="company-box">
+                            <img src="/img/facebooklogo.png" alt="imagem do facebook">
+                            <div class="company-info">
+                                <h3>Full Stack Developer</h3>
+                                <p>Facebook</p>
+                            </div>
+                        </div>
+                        <div class="locality">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Menlo Park, California</p>
+                        </div>
+                        <div class="job-type">
+                            <span class="pj">PJ</span>
+                        </div>
+                    </a>
+                </li>        
+            </ul>
+            <div class="btnjobs-container">
+                <a href="#" class="btnjobs">Ver mais vagas</a>
+            </div>
+        </main>
+        <section id="sendjobs-container">
+            <div id="sendjobs-inner" class="wrapper">
+                <h2>Envie uma vaga que será vista por milhares candidatos</h2>
+                <p>Garantimos que a sua vaga será exposta assim que preencher os dados.</br>
+                Esperemos que obtenha uma resposta rapidamente.</br>
+                Agradecemos a sua confiança<br>
+                E que com a nossa ajuda, encontre um trabalhador à altura!</br>
+                Até breve.</p>
+                <a href="#" class="light-btn">Enviar vaga</a>
+            </div>
+        </section>
+        <section id="status-container" class="wrapper">
+            <h2 class="title-center">Estatisticas do JobFinder</h2>
+            <p class="p-center">As estatisticas serão atualizadas ao minuto.<br>Agradecemos o vosso apoio e temos muito prazer em fazer
+                parte do vosso futuro. <br> Boa sorte!
+            </p>
+            <div>
+                <div class="status-box">
+                    <span class="status-qtd">150</span>
+                    <p class="status-txt">Vagas abertas</p>
+                </div>
+                <div class="status-box">
+                    <span class="status-qtd">250</span>
+                    <p class="status-txt">Candidatos contratados</p>
+                </div>
+                <div class="status-box">
+                    <span class="status-qtd">50</span>
+                    <p class="status-txt">Empresas participantes</p>
+                </div>
+                <div class="status-box">
+                    <span class="status-qtd">550</span>
+                    <p class="status-txt">Candidatos</p>
+                </div>
+            </div>
+        </section>
+        <section id="testmony-container">
+            <div class="wrapper">
+                <h2>Veja o que os candidatos dizem</h2>
+                <p class="p-center">Aqui ficam algumas mensagens e provas dos nossos candidatos</p>
+                <div class="testmony-box">
+                    <p class="testmony-msg">Ajudou-me imenso no futuro, estava sem rumo e aqui encontrei o caminho certo. <br>obrigado JobFinder pela oportunidade</p>
+                    <img src="/img/avatar1.png" alt="">
+                    <p class="testmony-name">João</p>
+                </div>
+                <div class="testmony-box">
+                    <p class="testmony-msg">Incrivel como a nossa vida pode mudar de um dia para o outro! Estava desempregado e encontrei um emprego incrivel.<br>
+                        obrigado JobFinder pela oportunidade
+                    </p>
+                    <img src="/img/avatar2.png" alt="">
+                    <p class="testmony-name">Beatriz</p>
+                </div>
+                <div class="testmony-box">
+                    <p class="testmony-msg">Consegui ter sucesso e trabalhar naquilo que realmente gosto. Sempre achei importante e só depois de conhecer 
+                        este site é que consegui. <br> Obrigado JobFinder pela oportunidade</p>
+                    <img src="/img/avatar3.png" alt="">
+                    <p class="testmony-name">Pedro</p>
+                </div>
+                <div class="testmony-box">
+                    <p class="testmony-msg">Encontrei a minha empresa de sonho, temos bom ambiente, boas amizades e bons salarios! É tudo o que se pode pedir.<br>
+                        Obrigado JobFinder pela oportunidade
+                    </p>
+                    <img src="/img/avatar4.png" alt="">
+                    <p class="testmony-name">Maria</p>
+                </div>
+            </div>
+        </section>
+        <section id="blog-container" class="wrapper">
+            <h2 class="title-center">Últimos artigos</h2>
+            <p class="p-center">Aqui encontram-se os nossos últimos artigos, atualizados ao minuto. <br>
+                Podes ler todos os nossos artigos aqui em baixo.</p>
+            <div class="article-box">
+                <img src="/img/blog1.jpg" alt="img blog">
+                <h4><a href="#">Article title 1</a></h4>
+                <p class="article-date">27 de junho de 2022 | 10 comentários</p>
+                <p class="article-resume">resumo 1 Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+                <a href="#" class="article-btn light-btn">Ler post</a>
+            </div>
+            <div class="article-box">
+                <img src="/img/blog1.jpg" alt="img blog">
+                <h4><a href="#">Article title 2</a></h4>
+                <p class="article-date">13 de junho de 2022 | 6 comentários</p>
+                <p class="article-resume">resumo 2 Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+                <a href="#" class="article-btn light-btn">Ler post</a>
+            </div>
+            <div class="article-box">
+                <img src="/img/blog1.jpg" alt="img blog">
+                <h4><a href="#">Article title 3</a></h4>
+                <p class="article-date">22 de abril de 2022 | 12 comentários</p>
+                <p class="article-resume">resumo 3 Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+                <a href="#" class="article-btn light-btn">Ler post</a>
+            </div>
+        </section>
+        <footer>
+            <div class="wrapper">
+                <div class="footer-box">
+                    <div class="company-footer">
+                        <img src="/img/logo.png" alt="imagem do logo">
+                        <h2>JobFinder</h2>
+                        <p>A maneira mais fácil de encontrar o seu proximo emprego.</p>
+                    </div>
+                </div>
+                <div class="footer-box">
+                    <div class="article-footer"></div>
+                    <h2>Artigos recentes</h2>
+                    <ul class="footer-list footer-article-list">
+                        <li>
+                            <a href="#">Como conseguir o primeiro emprego em tempos de crise?</a>
+                            <span class="article-date">05 de maio de 2022</span>
+                        </li>
+                        <li>
+                            <a href="#">Como conseguir o primeiro emprego em tempos de crise?</a>
+                            <span class="article-date">05 de maio de 2022</span>
+                        </li>
+                        <li>
+                            <a href="#">Como conseguir o primeiro emprego em tempos de crise?</a>
+                            <span class="article-date">05 de maio de 2022</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-box">
+                    <h2>Encontre-nos nas redes sociais</h2>
+                    <ul class="footer-list">
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-facebook-square"></i>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-linkedin"></i>
+                                <span>Linkedin</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="wrapper">
+                    <p>Claudio Cunha - 2022</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,515 @@
+html
+
+<h1> titulo </h1>												//titulo principal
+<h2> titulo </h2>												//titulo tamanho menor em comparação com o h2
+<h3> titulo </h3>												//titulo tamanho menor em comparação com o h3
+<h4> titulo </h4>												//titulo tamanho menor em comparação com o h4
+<h5> titulo </h5>												//titulo tamanho menor em comparação com o h5
+<h6> titulo </h6>												//titulo tamanho menor em comparação com o h6
+<p> Escrever o texto que quisermos </p>								//paragrafo 
+<a href= "https://www.google.com"> ir para o Google </a>					//elemento com hiperligação para o link, com o nome "ir para o google"
+
+<div>														//divisão
+	<a href= "https://www.google.com" target="_blank"> ir para o google </a>	//elemento com hiperligação para o link, com o nome "ir para o google" que abre o link NOUTRA PAGINA
+</div>
+<img src="minha imagem.jpg" alt="descrição da imagem">						//Colocar uma imagem no nosso site, mas atenção, essa imagem é de uma imagem do nosso PC e tem que estar na mesma pasta que o nosso ficheiro html. o alt é uma "descriçao da imagem"
+<img src="http://arquivo.devmedia.com.br/marketing/img/curso-curso-de-html-basico-371.png" alt="imagem do simbolo HTML">	//Colocar uma imagem no nosso site, mas agora com o endereço de imagem colado
+<!-- comentario -->											//Comentario
+</br>														//Muda de linha (quebra a linha)
+<hr />													//horizontal row (cria uma linha horizontal) para quebra de linha
+
+<ol> <li> </li> </ol>											//ordered list <ol> e list <li>
+<li> </li>													//list (têm que estar dentro da tag <ol>, indicam a ordem das coisas, ex:
+<ol>
+	<li> Primeiro faça isto </li>
+	<li> Segundo isto </li>
+	<li> Terceiro isto </li>
+</ol>
+
+No site aparece:
+1. Primeiro faça isto
+2. Segundo isto
+3. Terceiro isto
+
+
+<ul> <li> </li> </ul>											//unordered list (lista não ordenada)<ul> e list <li>, ex:
+<ul>
+	<li> Item 1 </li>
+	<li> Item 2 </li>
+	<li> Item 3 </li>
+</ul>
+
+No site aparece:
+• Item 1
+• Item 2
+• Item 3
+
+<p> se quiseremos escrever uma palavra em <b>NEGRITO</b> </p>				//Escrever em negrito, neste caso a palavra "NEGRITO"
+<p> se quiseremos escrever uma palavra em <strong>NEGRITO</strong> </p>			//Escrever em negrito, neste caso a palavra "NEGRITO", a tag <strong></strong> add semântica ao codigo
+<p> se quiseremos escrever uma palavra em <i>ITALÍCO</i> </p>				//Escrever em italíco, neste caso a palavra "ITALÍCO"
+<p> se quiseremos escrever uma palavra em <em>ITALÍCO</em> </p>				//Escrever em italíco, neste caso a palavra "ITALÍCO", a tag <em></em> adiciona semântica ao codigo //Ver html semântico
+<nav> <ul></ul> </nav>											//Barra de navegação, com uma lista nao ordenada dentro <ul></ul>
+<section>													//divisão, "secção" do nosso site que tem um proposito
+<footer>													//Rodapé
+
+
+
+Criar tabelas:
+<table width="100%" border="1">
+	<tr>
+		<th>Nome</th>
+		<th>Idade</th>
+		<th>peso</th>
+	</tr>
+	<tr>
+		<td>Dimitri</td>
+		<td>33</th>
+		<td>82KG</th>
+	</tr>
+	<tr>
+		<td>Maria</td>
+		<td>27</td>
+		<td>70</td>
+</table>
+
+
+
+IFRAME: Mostra o conteudo de outra pagina(src="link da pagina") dentro da pagina que estámos a trabalhar, video (youtube-share video-copiar o iframe), imagem, conteudo de outro site, etc..
+<iframe src="link que quisermos" name="meu-conteudo" width="100%" height="600" tittle="iframe"></iframe>
+
+Se quisermos colocar algumas tags de hiperligação no nosso iframe, tambem conseguimos: Temos que dar um "name" ao nosso iframe e no link da hiperligação escolher o iframe como target.
+<a href="nossapagina.html" target="meu-conteudo">Click Here</a>
+
+
+
+Formulario (botões):
+<form>
+	<label for="btntxt">Nome:</label>								//Nome que vem antes do botão e se carregarem no nome, o cursor automaticamente vai para dentro do botão
+	<input id="btntxt" type="text" placeholder="Escreve o teu nome aqui">		//Botão para escrever texto, com uma "dica" do que é pra fazer, dentro do botão (placeholder)
+	<label for="btntxt">Email:</label>								//Nome que vem antes do botão e se carregarem no nome, o cursor automaticamente vai para dentro do botão
+	<input id="btntxt" type="email" placeholder="Escreve o teu email aqui">		//Botão para escrever emails(deteta @ .com), com uma "dica" do que é pra fazer, dentro do botão (placeholder)												  
+	<label for="btntxt">Password:</label>							//Nome que vem antes do botão e se carregarem no nome, o cursor automaticamente vai para dentro do botão
+	<input id="btntxt" type="password" placeholder="Escreve a Password">		//Botão para escrever passwords(fica encriptado), com uma "dica" do que é pra fazer, dentro do botão (placeholder) 												  
+	<input type="radio" name="sexo" id="homem" value="Male" value="">			//bolinha de seleção com name "sexo", tem que ter o mesmo name para só selecionarem 1 bolinha
+	<label for="homem">Masculino</label>							//Nome depois da bolinha de seleção
+	<input type="radio" name="sexo" id="mulher" value="female" value="">		//bolinha de seleção com o name "sexo", tem que ter o mesmo name para só selecionarem 1 bolinha
+	<label for="mulher">Feminino</label>							//Nome depois da bolinha de seleção
+	<input id="btntxt" type="submit" value="Enviar">					//Botão para clicar, com nome de "enviar"
+	<input id="item1" type="checkbox" name="item1" value="tv">				//Caixa de seleção (caixa pra dar visto)
+	<label for="item1">TV</label>									//Nome depois da caixa pra dar visto
+	<input id="item1" type="checkbox" name="item1" value="tv">				//Caixa de seleção (caixa pra dar visto)
+	<label for="item1">TV</label>									//Nome depois da caixa pra dar visto
+	<input id="item1" type="checkbox" name="item1" value="tv">				//Caixa de seleção (caixa pra dar visto)
+	<label for="item1">TV</label>									//Nome depois da caixa pra dar visto
+	<textarea name="msg" placeholder="Escreve aqui" rows="15"cols="55"></textarea>		//Area para escrever um texto com 15 linhas(rows) e 55 colunas (cols) com texto dentro da area de texto "escreve aqui" (placeholder)
+
+</form>
+
+
+
+AUDIO: Funciona como as imagens, é so colocar o link ou ficheiro se tiver no nosso pc, no src
+
+<audio controls>									//para aparecer na pagina html os controlos comos: reproduzir, pausar, tirar o som, baixar o som, fazer download, etc
+	<source src ="ficheiroaudio.mp3 type="audio/mpeg" ou src="ficheiroaudio.wav" type="audio/wav"
+</audio>
+ 
+para tirar o fullscreen, download, etc: <audio controLsList="nodownload nofullscreen">		//Se inspecionarem o codigo e tirarem este "controLsList" conseguem fazer o download na mesma
+
+
+
+Video: tal como o audio, Funciona como as imagens, é so colocar o link ou ficheiro se tiver no nosso pc, no src
+
+<video controls>									//para aparecer na pagina html os controlos comos: reproduzir, pausar, tirar o som, baixar o som, fazer download, etc
+	<source src ="ficheiroaudio.mp4 type="video/mp4"
+</video>
+ 
+Para tirarmos o "fazer download" temos que:				//Se inspecionarem o codigo e tirarem este "controLsList" conseguem fazer o download na mesma
+<audio controls controLsList="nodownload">
+Para aparecer uma tela mais pequena e redimensionada: <video width="100%">
+Para aparecer uma imagem como fundo antes de reproduzirmos o video: <video poster="img/doPC.jpg">
+Para começar a reproduzir o video sozinho: <video autoplay>
+para tirar o fullscreen, download, etc: <video controLsList="nodownload nofullscreen">
+tudo junto fica:
+<video poster="img/doPC.jpg" width="100%" autoplay controls>
+	<source src ="ficheiroaudio.mp4 type="video/mp4"
+</video>
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Vamos criar um mini projeto para utilizar algumas destas coisas: pagina de uma cidade, com hiperligações
+
+
+Abrimos o VsCode, criamos um ficheiro com o nome "treino.html":
+-Mudar o nome do titulo da pagina(da janela)
+-Criar a parte css num ficheiro à parte: <link rel ="stylesheet" href="style.css">
+-Criar uma barra de navegação <nav>
+-Criar uma lista nao ordenada <ul>
+-Criar as listas (3, Home, Produtos, Contactos) <li> dentro da <ul>
+-Criar uma <section> com:
+-titulo PORTO <h1>
+-paragrafo com "A MELHOR CIDADE DO MUNDO <p>
+-imagem da cidade do porto <img src="link da imagem ou nome da imagem se tiver no nosso computador" alt="Cidade-Porto"/>
+-rodapé com o nosso nome, imagem copyrigth e o ano atual <footer> Claudio Cunha &copy; 2022</footer>
+
+
+<!DOCTYPE html>															//Documento html
+<html lang="en">															//Linguagem ingles
+<head>																//"cabeça"-> Parte de configurações
+    <meta charset="UTF-8">													//Configurações de caracteres, acentuações etc
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">								//Compatibilidade ie= internet explorer
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TreinoHTML</title>													//Nome que queremos na janela do browser
+    <link rel="stylesheet" href="style.css">										//Parte css num ficheiro à parte
+</head>
+<body>
+    <nav>																//Barra de navegação
+        <h1>Bem-Vindos</h1>													//Titulo
+        <ul>															//lista não ordenada
+            <li><a href="">Home</a></li>											//lista com hiperligação 
+            </br>															//Mudança de linha
+            <li><a href="">Produtos</a></li>										//lista com hiperligação
+            </br>															//Mudança de linha
+            <li><a href="">Contactos </a></li>										//lista com hiperligação
+        </ul>									
+    </nav>
+    <section>															//secção
+        <h1>PORTO</h1>														//titulo
+        <p><em>A MELHOR CIDADE DO MUNDO</em></p>									//paragrafo
+        <img src="https://stg.construir.pt/app/uploads/2015/06/porto-noite.jpg"				//imagem
+        alt="Cidade-Porto"/>
+    </section>
+    <footer>Claudio Cunha &copy;2022</footer>										//rodapé
+</body>
+</html>
+
+
+Agora, abrimos o ficheiro de css (style.css) e:
+
+-Editamos o estilo do nosso <body> e inserimos:
+body {
+    font-family: Helvetica;
+    text-align: center;						//Alinhamento de texto: centrado
+    color: white;							//Cor da letra
+    background-color: #333;					//Cor de fundo
+    margin: 0;							//margem 0
+    padding: 0;							//espaçamento 0
+}
+-Editamos o estilo da <nav>:
+nav {
+    display: flex;						//faz com que os elementos da barra de navegação <nav> e titulo, fiquem ao lado um do outro
+    justify-content: space-around;				//Cria um espaçamento entre os elementos da barra de navegação (<nav> e titulo)
+    padding: 10px;						//espaçamento dos cantos, na barra de navegação <nav>
+    border-bottom: 1px solid #666;				//Cria uma "borda"(um risco horizontal) pra separar a barra de navegação <nav> do resto, tamanho 1px, cor cinzento
+}
+-Editamos o estilo da <ul> da nossa <nav>:
+nav ul {	
+    display: flex;						//faz com que os elementos da <nav ul>, fiquem ao lado uns dos outros
+    list-style: none;						//Tira as bolinhas preenchidas (•••) das nossas listas não ordenadas <ul> dentro da <nav>
+    align-items: center;					//Alinhamento de items: centrado
+}
+-Editamos o estilo da <li> da nossa <ul>:
+ul li {
+    margin-right: 10px;						//Afasta as nossas listas <li> umas das outras, 10px
+}
+-Editamos o estilo da nossa hiperligação <a href=""> dentro da lista <li> nao ordenada <ul>:
+ul li a {
+    color: white;							//Cor da letra
+}
+-Editamos o estilo do titulo da nossa secção:
+section h1 {
+    font-size: 32px;						//Tamanho da letra: 32px
+}
+-Editamos o estilo da nossa <img>:
+img {
+    border: 3px solid rgb(250, 250, 250);			//Borda da imagem com 3px e cor branca
+}
+-Editamos o rodapé do nosso <footer>:
+footer {
+    padding: 20px;						//Espaçamento do footer (de baixo pra cima)
+    border-top: 1px solid #666;				//Cria uma borda (risco horizontal) no topo do footer (por cima do footer), tamanho 1px, cor cinzento
+    margin-top: 20px;						//Espaçamento entre o nosso rodapé e a imagem de cima (top), tamanho 20px
+}
+
+
+
+O nosso ficheiro css (style.css) fica assim:
+
+	body {
+    font-family: Helvetica;					//tamanho e tipo de letra, "helvetica" é uma font disponivel no css que podemos usar
+    text-align: center;						//Alinhamento de texto: centrado
+    color: white;							//Cor da letra
+    background-color: #333;					//Cor de fundo
+    margin: 0;							//tirar o espaçamento
+    padding: 0;							//para tirar o espaçamento dos cantos do nosso body
+}
+nav {
+    display: flex;						//faz com que os elementos da barra de navegação <nav> e titulo, fiquem ao lado um do outro
+    justify-content: space-around;				//Cria um espaçamento entre os elementos da barra de navegação (<nav> e titulo)
+*/Tambem existe o: justify.content: space-between/*   //Cria um maior espaçamento entre os elementos da barra de navegação (<nav> e titulo), um em cada ponta 
+    padding: 10px;						//espaçamento dos cantos, na barra de navegação <nav>
+    border-bottom: 1px solid #666; 				//Cria uma "borda"(um risco horizontal) pra separar a barra de navegação <nav> do resto, tamanho 1px, cor cinzento
+}
+nav ul {
+    display: flex;						//faz com que os elementos da <nav ul>, fiquem ao lado uns dos outros
+    list-style: none;						//Tira as bolinhas preenchidas (•••) das nossas listas não ordenadas <ul> dentro da <nav>
+    align-items: center;					//Alinhamento dos items da nossa <ul> dentro da <nav>: centrado
+}
+ul li {
+    margin-right: 10px;						//afasta as nossas listas <li> umas das outras, 10px
+}
+ul li a {
+    color: white;							//Cor da letra dos nossos links com hiperligação <a> dentro das nossas listas <li> nao ordenadas <ul>
+}
+
+section h1 {
+    font-size: 32px;						//Aumenta o tamanho da letra de todos os titulos da nossa section: 32px
+}
+
+img {
+    border: 3px solid white;					//Borda da imagem com 3px e cor branca
+}
+
+footer {
+    padding: 20px;						//Espaçamento do footer (de baixo pra cima)	
+    border-top: 1px solid #666;				//Cria uma borda (risco horizontal) no topo do footer (por cima do footer), tamanho 1px, cor cinzento
+    margin-top: 20px;						//Espaçamento entre o nosso rodapé e a imagem de cima (top), tamanho 20px
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS
+
+Seletores de css:
+Vamos criar um ficheiro html e fazer:
+"html:5" e criar:
+-<link rel="stylesheet" href="styles.css"/>
+-2 titulos com id diferente
+-3 paragrafos com class diferente
+
+-por id: Quando queremos afetar um unico elemento;
+ex: <h1 id="titulo-principal">Titulo da pagina</h1>
+    <h1 id="segundo-titulo-principal">Titulo da pagina</h1>
+
+-por class: Quando queremos afetar mais elementos com uma regra;
+ex: <p class="meu-paragrafo">Algum conteudo do site!</p>
+    <p class="meu-paragrafo">Algum conteudo do site2!</p>
+    <p class="meu-paragrafo">Algum conteudo do site3!</p>
+
+
+Vamos ao ficheiro "styles.css" e:
+Para selecionarmos um dos titulos que criamos em cima (por id) é so fazer:
+#segundo-titulo-principal{
+	background-color: yellow;								//cor de fundo amarelo
+	color: black;										//cor da letra preto
+	padding: 10px;										//Espaçamento 10 px
+	font-family: helvetica;									//Tamanho e estilo de letra
+}
+
+Para selecionarmos os paragrafos que criamos em cima (por class) é so fazer:
+.meu-paragrafo{
+	background-color: black;								//cor de fundo preto
+	color: green;										//cor da letra verde
+}
+
+Seletor de Todos os Elementos da pagina:
+Para selecionarmos tudo para editar, fazemos:
+/* Isto serve para quando quisermos trabalhar com um "default", fica tudo com este padrão a não ser que mudemos individualmente.
+ex: os nossos paragrafos em cima, nao têm nenhuma font-family, ou seja, por padrão a font-family vai ser: Arial. Já o nosso #segundo-titulo-principal, vai manter o font-family: helvetica;
+os outros titulos, como não editamos nada, para já, vão estar com a font-family: Arial; */
+
+* {
+	font-family: Arial;									//tamanho e estilo de letra
+}
+
+Seletor em Listas:
+Para selecionarmos o que queremos editar em lista, fazemos:
+/*Basicamente, podemos selecionar varias coisas para dar o mesmo estilo, ex: mexer nos paragrafos e nos titulos*/
+
+p,h1 {
+	border-bottom: 1px solid red;								//Borda vermelha por baixo de cada titulo e paragrafo
+}
+
+
+Tipos de fonts:
+
+font serifada: Todas as letras têm umas "perninhas", uns detalhes, desenhados na base. Usados normalmente para a leitura
+-font-family: Georgia;
+-etc
+
+font sem serifa: Todas as letras ficam mais "retas", são as letras mais comuns na web
+-font-family: helvetica;
+-etc
+font mono-espaçada: Todas as letras têm a mesma largura
+-font-family: "Courier New";
+-etc
+
+Size e weight:
+Tamanho-fonte-grande:
+	font-size: 64px;						//tamanho da letra
+Tamanho-fonte-pequena:
+	font-size: 12px;						//tamanho da letra
+peso-fonte: em negrito
+	font-weight: 700;						//grossura 700
+
+
+texto.italico:
+	font-style: italic;
+
+Box Model:
+box-model{
+	width: 200px;						//largura
+	height: 100px;						//altura
+	border: 1px solid blue;					//borda a toda a volta
+	padding: 20px;						//espaço entre a borda e o texto: 20px de espaço das linhas de cima, baixo e linhas laterais, ou seja, espaço interno. Se colocarmos dois(2) valores: 20px 10px; significa que: 20px de espaço das linhas de cima e baixo, 10 de espaço das linhas laterais. Se colocarmos tres(3) valores: 20px 10px 5px; 20px de espaço da linha de cima, 10 de espaço das linhas laterais, 5 de espaço da linha de baixo 
+	padding-left: 50px;					//espaço do lado esquerdo 
+	margin: 20px;						//Altera o espaço externo
+}
+
+Propriedades de texto:
+alinhamento{
+	text-align: center;	//Alinhamento de texto, se nao tiver nada, por padrão fica à esquerda. Podemos alinhar center e right. esquerda é o default.
+}
+tudo-em-maiusculo{
+	text-transform: uppercase;
+}
+TUDO-EM-MINUSCULO{
+	text-transform: lowercase;
+}
+
+Espaço de linhas e letras:
+espaço-do-texto{
+	width: 150px;						//largura
+	line-height: 40px;					//aumenta a altura das linhas
+	letter-spacing: 8px;					//espaço entre as letras
+}
+
+links (<a href):
+.decoration{
+	text-decoration: none;					//Tira a linha por baixo da hiperligação
+}
+.visitado:visited{
+	color: orange;					//Quando o utilizador visita o link, o texto do link fica laranja
+}
+
+.estilo-hover:hover{
+	background-color: red				//Quando o cursor estiver por cima do link, o link fica com o fundo vermelho			
+}
+
+.botao{
+	background-color: green;			//cor de fundo
+	border: 3px	solid blue;				//borda à volta do botão de 3px e azul
+	border-radius: 5px;				//borda com os cantos redondinhos de 5px
+	color: white;					//cor da letra branca
+	text-decoration: none;				//Tirar o sublinhado do botão
+	display: block;					//cria um bloco à volta do botão que ocupa a linha toda
+	width: 120px;					//limitar a largura a 120px
+	padding: 12px 7px;				//espaço entre o texto do botão e as linhas, "preenchimento interno"
+	text-align: center;				//texto alinhado ao centro
+	margin: 20px;					//espaço entre o bloco do botão e o exterior
+	transition: 0.5s;					//Efeito do preenchimento do botão quando o rato passa por cima (por causa do hover) de 0.5 segundos 
+}
+.botao:hover {
+	background color blue (igual à borda)	//preenchimento do botão quando o rato passa por cima, cor azul 
+}
+
+
+listas do html:
+<ul>
+	<li>lista</li>
+	<li>lista2</li>
+	<li>lista3</li>
+</ul>
+
+isto no nosso site aparece:
+•lista
+•lista2
+•lista3
+
+Para tirar as bolinhas com o css:
+ul li {
+	list-style: none;					//Tira as bolinhas das listas
+}
+
+
+display:
+bloco{
+display: block;						//os elementos ficam em bloco (ocupar a linha toda)
+}
+
+bloco{
+display: inline-block;					//os elementos ficam em linha (ocupa só o espaço do bloco)
+}
+
+escondido{
+	display: none;					//esconde os elementos
+}
+
+posições:
+posicao-fixa{
+	position: fixed;					//Colocar o elemento fixo na tela e está sempre na tela enquanto fazemos scroll
+	left: 0;						//ficar colado ao lado esquerdo
+	top: 0;						//ficar colado no topo
+	width: 100%;					//largura de 100%
+	padding: 15px;					//Espaço interno 15px
+	text-align: center;				//alinhar texto ao centro
+	background-color: blue;				//cor de fundo azul
+	border-bottom: 2px solid blue;		//Borda por baixo azul
+	color: white;					//cor da letra branco
+}
+
+pseudo seletor / pseudo class
+ex: imaginemos que temos 3 <p class="primeiro-elemento"> </p>
+para mudarmos so o primeiro paragrafo, fazemos no css:
+
+.primeiro-elemento p:first-child{
+	color: purple					//cor da letra roxo
+	font-weight: bold;				//grossura "negrito"
+}
+
+pseudo elementos
+ex: imaginemos que temos 1 <p class "falso-elemento"> </p> e vamos mudar a primeira letra, que não é um elemento(tag) mas vai ser para conseguirmos mexer só nela
+.falso-elemento::first-letter{
+	font-size: 40px;					//Tamanho da letra 40px
+	color: blue;					//cor da letra azul
+	backgroundcolor: red;				//cor de fundo vermelho
+	padding: 5px;					//espaço interno 5px
+}
+
+Ordem de prevalência-Especifidade
+1º html ID="ola" -> css #ola{}
+2º html class="ola" -> css .ola{}
+3º html <h2> -> css h2{}
+ex:
+
+Vamos ter 3 <h2>, 1 com class, 1 com id, 1 só com a tag:
+<h2 class="ola" id="olaid"></h2>
+<h2 class="ola"</h2>
+<h2>titulo</h2>
+
+se fizermos h2 {}: Todos os titulos vao ter a cor de letra vermelho
+h2{
+	color: red
+}
+
+se fizermos .ola{}: O titulo com class ola, vai ter a cor de letra verde
+.ola{
+	color: green
+}
+
+se fizermos #ola{}: O titulo com id olaid, vai ter a cor de letra azul
+#olaid{
+	color: blue
+}
+
+Ou seja:
+-se editarmos o titulo sem ID ou sem class, todos os titulos sao mudados;
+-se editarmos o titulo pela class, todos os titulos com aquela class sao mudados e prevalece à regra de cima;
+-se editarmos o titulo pelo ID, todos os titulos com aquele ID sao mudado e prevalece às duas regras de cima;
+
+Important: Com isto, nao importa se os elementos têm ID, classes, ou nada, com isto VAMOS MEXER EM TUDO (é uma má pratica)
+h2 {
+	color: purple !important;
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

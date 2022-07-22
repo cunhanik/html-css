@@ -1,0 +1,3597 @@
+Vamos fazer outro projeto: Site de empregos
+
+Criar uma pasta "loja" com: index.html e style.css
+
+No HTML fazemos: html5, mudamos o title da janela para "Empregos" e criamos ligação ao style.css
+
+Abrir o google fonts: https://fonts.google.com/
+pesquisar por: open sans
+selecionar: light 300, regular 400, semibold 600, bold 700, extrabold 800
+Copiar link: <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+Colocar o link por baixo do link css
+
+Abrir o css e:
+/*geral*/
+* {
+    font-family: "Open Sans", sans-serif;
+}
+
+Agora abrimos o html na web e fazemos: inspect, ver se a font-family é a "Open Sans",sans-serif;
+Abrir o site: https://fontawesome.com, criar conta e testar um icon no nosso codigo:
+    <h1>Teste <i class="fa-solid fa-anchor"></i></h1>    
+
+Feito isto, vamos apagar o h1 e o icon <i> e:
+-Criar uma <div class="container">				     //Para que o projeto tenha uma largura maxima, pq ha monitores mt grandes e o layout fica mal, vamos prever uma res max de 1920px
+-Criar o nosso <header>															//Cabeçalho da pagina: barra de navegação, banner, etc
+-Criar a <nav> dentro do header													//barra de navegação
+-Criar <div class="nav-container"> dentro da <nav>	//divisão que vai ter uma largura menor que o nosso 1920px default 
+-Criar a <img id="logo" src="img/logo.png" alt="jobFinder"> dentro dessa div						//img do logo, alt=descrição da imagem
+-Criar a nossas lista não ordenada <ul> dentro dessa div												//lista nao ordenada
+-Criar as nossas listas(3x-EncontrarVaga;EnviarVaga;Contacto) com as hiperligações <li><a href="#">		//Listas com hiperligações 
+-SAIR DA <nav>
+-Criar uma <div id="main-banner"> dentro do <header> (por baixo da saida da </nav>)					//Para uso de css 
+-Criar outra <div id="search-form"> dentro da outra div									//Para uso de css, esta div vai conter o formulario
+-Criar o titulo <h1> com: "A maneira mais facil de encont..." dentro da div de cima
+-Criar um paragrafo <p> com: "liga-te de forma gratuita......" dentro da div de cima
+-Criar formulário <form> dentro da div de cima													//formulario
+-Criar caixa de texto<input type="text" name="job" id="job" placeholder="Escreve o teu cargo"> dentro do form		//caixa de texto, com "dica"(placeholder) dentro
+-Criar um select <select name="city" id="city"> dentro do form									//select para quando selecionarem por cidade
+-Criar uma option <option value="">Todas as cidades</option> dentro do select						//option para que se o utilizador nao selecionar uma cidade, procura em todas
+-Criar outro select <select name="category" id="category"> dentro do form						//select da categoria da vaga
+-Criar uma option <option value="">Categoria</option> dentro do select							//option para que se o utilizador nao selecionar uma category, procura em todas
+-Criar um botão de "pesquisar" <input type="submit" value="Pesquisar"> dentro do form				//Botão pesquisar
+
+
+O codigo fica:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empregos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/0d22ec1ed3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">																	//div com tudo do header dentro
+        <header>																			
+            <nav>																			//barra de navegação dentro da div
+                <div class="nav-container">														//div dentro da barra de nav
+                    <img id="logo" src="img/logo.png" alt="jobfinder">										//img do logo
+                    <ul>																	//listas nao ordenadas
+                        <li><a href="#">Encontrar vaga</a></li>											//lista encontrar...
+                        <li><a href="#">Enviar candidatura</a></li>										//lista enviar...
+                        <li><a href="#">Contacto</a></li>												//lista contacto
+                    </ul>
+                </div>
+            </nav>
+            <div id="main-banner">																//div com tudo dentro dela
+                <div id="search-form">															//div dentro de outra div
+                    <h1>A maneira mais facil de encontrar emprego</h1>										//titulo
+                    <p>liga-te de forma gratuita às melhores empresas e consegue o emprego dos teus sonhos</p>			/paragrafo
+                    <form>																	//formulario
+                        <input type="text" name="job" id="job" placeholder="Escreve o teu cargo">					//caixa de texto com "dica dentro do que fazer"(placeholder)
+                        <select name="city" id="city">												//select city
+                            <option value="">Todas as cidades</option>										//option todas as cidades
+                        </select>	
+                        <select name="category" id="category">											//select category
+                            <option value="">Categoria</option>											//option Categoria
+                        </select>
+                        <input type="submit" value="Pesquisar">											//botão pesquisar
+                    </form>
+                </div>
+            </div>
+        </header>
+    </div>
+</body>
+</html>
+
+Agora vamos ao nosso css:
+-Dar reset para que seja igual no chrome,mozila,ie, etc
+-configurar o conteudo para a largura de monitores diferentes
+-configurar o header
+-configurar barra de navegação
+-configurar o banner
+-configurar a div do formulario
+-configurar o titulo e o paragrafo dessa div
+-configurar o input e o select dessa div
+-configurar o botão(pesquisar)
+
+
+body{
+    margin: 0;										//Margem 0, não há distancia entre o body e o resto do conteudo
+}
+
+h1,h2,h3,h4,h5,p,span{
+    margin: 0;										//margem 0, não há distância entre os titulos,p e span, do resto do conteudo
+    color: #666;										//cor da letra cinzenta
+}
+
+.container{
+	max-width:1920px;									//largura maxima de 1920 (para monitores muito grandes, que tenham mais que essa res)
+	width: 100%;									//Se for menor que 1920, ocupa o ecra e pagina toda
+}
+
+/*header*/
+header{
+    position: relative;									//posição relativa
+    top: 0;											//começa no topo
+    height: auto;										//altura automatica
+    width: 100%;										//largura de 100%
+}
+
+/* barra de navegação (nav bar) */
+nav{
+    position: fixed;									//posição fixa
+    top: 0;											//começa no topo
+    height: 100px;									//altura de 100px
+    width: 100%;										//largura 100%
+    z-index: 1;										//Para que sobressaia em todos os elementos para estarmos sempre a ver, independementemente do scroll
+    background-color: white;								//cor de fundo branco
+    border-bottom: 1px solid #CCC;							//Borda por baixo da nav(so para dar um detalhe) com 1 px solid e cor cinza claro
+}
+
+nav:after{											//depois da nav
+    clear: both;										//limpar o float
+    content:"";										//Content vai ser nulo
+    display: block;									//os elementos ficam em bloco (ocupar a linha toda)
+}
+
+.nav-container{
+    max-width: 1200px;									//largura maxima 1200px
+    position: relative;									//posição relativa	[vai centralizar]
+    margin-right: auto;									//margem direita auto	[vai ajudar a centrar]
+    margin-left: auto;									//margem esquerda auto	[vai ajudar a centrar]
+}
+
+#logo{
+    width: 50px;										//largura de 50px
+    height: 50px;										//altura de 50px
+    margin-top: 25px;									//margem do topo 25px, para a img ficar afastada do topo 25px
+}
+
+.nav-container ul{
+    float: right;										//Colocar as listas do lado direito
+    height: 100px;									//altura 100px	[ajuda a centralizar o texto nos 100px]
+    line-height: 100px;									//linha de altura 100px [ajuda a centralizar o texto nos 100px]
+    margin: 0;										//margem 0
+}
+
+.nav-container li{
+    list-style: none;									//Tira as bolinhas preenchidas (•••)
+    float: left;										//Colocar as listas da esquerda para a direita
+    margin: 0 15px;									//margem de 0 para cima e baixo e 5px de distancia para afastar os elementos
+}
+
+.nav-container li a{
+    text-decoration: none;								//Tirar o sublinhado das hiperligações
+    color: #666;										//cor da letra cinza
+    transition: 0.5s;									//transição de 0.5s quando o mouse passa por cima com o efeito hover
+}
+
+.nav-container li a:hover{
+    color: #3381F3;									//cor da letra azul quando o mouse passa por cima
+}
+
+/*banner*/
+#main-banner{				
+    background: url("/img/banner6.jpg") no-repeat;				//Imagem de fundo sem repetição caso exceda a largura maxima
+    background-size: cover;								//preencher o maximo da tela possivel
+    background-position: 0 55%;							//deslocamento de baixo para cima de 55%
+    position: relative;									//posição relative porque é provavel que dentro desta div vamos ter outra position
+    margin-top: 100px;									//margem top 100px para separar da nossa barra de navegação fixa 
+}
+/*div do formulario*/							
+#search-form{
+     position: relative;								//posição relative
+     width: 80%;										//80% de largura do banner, o banner tem 100%
+     margin-left: auto;									//margem esquerda auto para ajudar a centralizar
+     margin-right: auto;								//margem direita auto para ajudar a centralizar
+     padding-top: 15em;									//espaçamento de 15em da parte de cima, para centralizar o conteudo e ficar o formulario no centro da div
+     padding-bottom: 15em;								//espaçamento de 15em da parte de baixo, para centralizar o conteudo e ficar o formulario no centro da div
+     text-align: center;								//alinhar o texto ao centro
+}
+/*titulo da div*/
+#search-form h1{
+    font-size: 40px;									//Tamanho da letra 40px
+}
+/*paragrafo da div*/
+#search-form p{
+    margin-top: 30px;									//margem de cima 30px	[vai separar o p do titulo]
+    margin-bottom: 60px;								//margin de baixo 60px	[vai separar o p do input que fizemos no html]
+    font-size: 18px;									//tamanho da letra 18px
+    font-weight: 300;									//a grossura do paragrafo mais fina (300) do que o normal
+}
+
+/*input e select da div*/
+#search-form input, #search-form select{
+    background-color: #FFF;								//Cor de fundo branca
+    border-radius: 5px;									//borda redonda 5px 
+    border-color: transparent;							//cor da borda transparente(para dar um efeito)
+    padding: 10px 20px;									//10px cima e baixo, 20px lateral
+    font-size: 18px;									//tamanho da letra 18px
+    margin: 0 10px;									//margem de 0 cima e baixo, 10px de lado para afastar uns dos outros
+}
+
+/*só o botão submit(pesquisar) da div*/
+#search-form input[type=submit] {
+    background-color: #3381F3;							//cor de fundo azul
+    text-transform: uppercase;							//todas as letras ficam em maiusculas
+    color: #FFF;										//cor da letra branca
+    cursor: pointer;									//cursor diferente para aparecer um cursor especial quando carregamos no link
+    transition: 0.5s;									//transição de 0.5s quando o mouse passa por cima com o efeito hover
+}
+
+#search-form input[type=submit]:hover{
+    background-color: #003a91;							//cor da letra azul quando o mouse passa por cima
+}
+
+
+Feito isto tudo, vamos agora para o nosso HTML:
+-Criar a tag <main id="lastjobs-container"class="wrapper"> com:
+-titulo <h1> ultimas vagas enviadas dentro da class main
+-listas nao ordenadas <ul> dentro da class main
+-listas com:
+	hiperligação <a> para nada # dentro da ul dentro da <ul> com:
+		-Criar uma div <div class="company-box"> com a imagem:
+			img googlelogo.png
+			Criar uma div <div class="company-info"> com os detalhes da empresa:
+			-titulo mais pequeno h3 "Developer"
+			-paragrafo "Google
+		-Criar uma div <div class="locality"> com detalhes da localização:
+			<i class="fas fa-map-marker-alt"></i>
+			<p>Mountain View, California</p>
+		-Criar uma div <div class="job-type"> com detalhes da vaga:
+			<span class="clt">CLT</span>
+-Repetir esta lista 3x, para ficarmos com 4 e mudar as informações:
+ para: 
+	-Na <div class="company-box"> com a imagem:
+		img googlelogo.png // img ibmlogo.png // img linkedinlogo.png // img facebooklogo.png
+		Criar uma div <div class="company-info"> com os detalhes da empresa:
+		-titulo mais pequeno h3 "Developer" // h3 "DBA"                   // h3 "Front-End Developer"                    // h3 "Full Stack Developer" 
+		-paragrafo "Google"			// paragrafo "IBM"            // paragrafo "linkedin"                        // paragrafo "facebook"
+	-Na  div <div class="locality"> com detalhes da localização:            
+		<p>Mountain View, California</p>	// Armonk, New York           // paragrafo Sunnyvale, California             // paragrafo Menlo Park, California
+	-Na div <div class="job-type"> com detalhes da vaga:                    
+		<span class="clt">CLT</span>		// <span class="pj">PJ</span> // <span class="homeoffice">Home Office</span> // <span class="pj">PJ</span>
+-Criar outra div <div class="btnjobs-container"> com:
+	-Botão com hiperligação <a href="#" class="btnjobs">Ver mais vagas</a> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empregos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/0d22ec1ed3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">																	//div com tudo do header dentro
+        <header>																			
+            <nav>																			//barra de navegação dentro da div
+                <div class="nav-container">														//div dentro da barra de nav
+                    <img id="logo" src="img/logo.png" alt="jobfinder">										//img do logo
+                    <ul>																	//listas nao ordenadas
+                        <li><a href="#">Encontrar vaga</a></li>											//lista encontrar...
+                        <li><a href="#">Enviar candidatura</a></li>										//lista enviar...
+                        <li><a href="#">Contacto</a></li>												//lista contacto
+                    </ul>
+                </div>
+            </nav>
+            <div id="main-banner">																//div com tudo dentro dela
+                <div id="search-form">															//div dentro de outra div
+                    <h1>A maneira mais facil de encontrar emprego</h1>										//titulo
+                    <p>liga-te de forma gratuita às melhores empresas e consegue o emprego dos teus sonhos</p>			/paragrafo
+                    <form>																	//formulario
+                        <input type="text" name="job" id="job" placeholder="Escreve o teu cargo">					//caixa de texto com "dica dentro do que fazer"(placeholder)
+                        <select name="city" id="city">												//select city
+                            <option value="">Todas as cidades</option>										//option todas as cidades
+                        </select>	
+                        <select name="category" id="category">											//select category
+                            <option value="">Categoria</option>											//option Categoria
+                        </select>
+                        <input type="submit" value="Pesquisar">											//botão pesquisar
+                    </form>
+                </div>
+            </div>
+        </header>
+        <main id="lastjobs-container"class="wrapper">													//main (secção de conteudo principal)
+            <h1>Últimas vagas enviadas</h1>														//titulo
+            <ul>																			//listas nao ordenadas
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div
+                            <img src="/img/googlelogo.png" alt="imagem da google">								//img
+                            <div class="company-info">												//div
+                                <h3>Developer</h3>													//titulo mais pequeno
+                                <p>Google</p>														//paragrafo
+                            </div>
+                        </div>
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Mountain View, California</p>											//paragrafo
+                        </div>	
+                        <div class="job-type">														//div
+                            <span class="clt">CLT</span>												//span
+                        </div>
+                    </a>
+                </li>
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div	
+                            <img src="/img/ibmlogo.png" alt="imagem da ibm">									//img
+                            <div class="company-info">												//div
+                                <h3>DBA</h3>														//titulo mais pequeno
+                                <p>IBM</p>														//paragrafo
+                            </div>
+                        </div>																
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Armonk, New York</p>													//paragrafo
+                        </div>
+                        <div class="job-type">														//div
+                            <span class="pj">PJ</span>												//span
+                        </div>
+                    </a>
+                </li>																		
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div
+                            <img src="/img/linkedinlogo.png" alt="imagem do linkedin">							//img
+                            <div class="company-info">												//div
+                                <h3>Front-End Developer</h3>											//titulo mais pequeno
+                                <p>Linkedin</p>														//paragrafo
+                            </div>
+                        </div>	
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Sunnyvale, California</p>												//paragrafo
+                        </div>
+                        <div class="job-type">														//div
+                            <span class="homeoffice">Home Office</span>										//span
+                        </div>
+                    </a>
+                </li>                								
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div
+                            <img src="/img/facebooklogo.png" alt="imagem do facebook">							//img
+                            <div class="company-info">												//div
+                                <h3>Full Stack Developer</h3>											//titulo mais pequeno
+                                <p>Facebook</p>														//paragrafo
+                            </div>
+                        </div>
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Menlo Park, California</p>												//paragrafo
+                        </div>
+                        <div class="job-type">														//div
+                            <span class="pj">PJ</span>												//span
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="btnjobs-container">														//div
+                <a href="#" class="btnjobs">Ver mais vagas</a>											//hiperligação
+            </div>
+        </main>
+    </div>
+</body>
+</html>
+
+Agora na parte do css:
+Vamos acrescentar...
+
+/*Seção de ultimos empregos*/
+
+#lastjobs-container{
+    text-align: center;																		//texto ao centro
+    padding: 100px 0;																		//espaço de 100px cima e baixo, 0 nas laterais
+}
+.wrapper{
+    max-width: 1200px;																		//largura maxima 1200px
+    position: relative;																		//posição relative
+    margin-left: auto;																		//margem esquerda automatica [ajuda a centrar]
+    margin-right: auto;																		//margem direita automatica [ajuda a centrar]
+}
+
+#lastjobs-container h1{
+    font-size: 36px;																		//tamanho da letra 36px
+    margin-bottom: 50px;																	//margem para afastar o titulo da parte de baixo
+}
+
+#lastjobs-container ul{
+    padding: 0;																			//espaçamento 0
+    border: 1px solid #CCC;																	//borda à volta de 1px solid cor cinza claro
+    border-radius: 10px;																	//bordas redondas 10px
+}
+
+#lastjobs-container ul li{
+    list-style: none;																		//tirar as bolinhas preenchidas das listas
+    text-align: left;																		//texto centrado
+    border-bottom: solid 1px #CCC;																//Borda por baixo 1px solid cor cinza claro
+    height: 80px;																			//altura de 80px
+    position: relative;																		//posição relative
+}
+
+#lastjobs-container ul li:last-child{															//falso seletor para tirar a borda dobrada do ultimo "filho"	
+    border: none;																			//tirar a borda da ULTIMA LISTA
+}
+
+.clickarea{																// [VAI FAZER COM QUE A HIPERLIGAÇÃO DOS LINKS FIQUEM NA AREA TODA DO CLICK]
+    position: absolute;																		//posição absolute
+    top: 0;																				//top 0
+    left: 0;																			//esquerda 0
+    width: 100%;																			//largura 100%
+    height: 100%;																			//altura 100%
+}
+
+/*Company img*/
+
+.company-box{
+    display: inline-block;														//display inline-block para ficar alinhado com os outros elementos da div
+    width: 50%;																//largura de 50%
+    position: relative;															//posição relativa
+    padding-left: 1%;															//espaçamento da esquerda de 1% para descolar da borda
+}
+
+.company-box img{
+    width: 100px;																//largura 100px
+    margin-top: 2.5px;  														//espaçamento de cima de 2.5px para centrar
+}
+
+.company-info{
+    display: inline-block;														//display inline-block, vai ficar alinhado com a imagem
+    margin-left: 50px;															//espaçamento da esquerda de 50px da img
+    margin-top: 10px;															//espaçamento de cima de 10px	para centrar verticalmente da img
+    text-align: left;															//texto alinhado à esquerda
+    position: absolute;															//posição abosulte
+}
+
+.company-info h3{
+    font-weight: 300;															//grossura da letra 300
+    margin-bottom: 10px;														//espaçamento de cima 10px
+}
+
+.company-info p{
+    font-weight: bold;															//grossura da letra negrito
+}
+
+/*company locality*/
+
+.locality{
+    color: #6d6d6d;															//cor cinza
+    display: inline-block;														//display inline-block, vai ficar alinhado com a div da imagem
+    width: 25%;																//largura 25%
+    position: absolute;															//posição abosulte
+    height: 100%;																//altura 100% do li
+    line-height: 80px;															//80px pq o li tem 80 px e assim vai ficar centrado na vertical
+}
+
+.locality i, .locality p{
+    display: inline-block;														//display inline block para alinhar um ao lado do outro
+}
+
+.locality i{
+    margin-right: 5px;															//margin right 5px para descolar do p
+}
+
+/* company job type */
+
+.job-type{
+    display: inline-block;														//Display inline block para ficar um ao lado do outro
+    width: 20%;																//largura de 20%
+    height: 100%;																//altura 100%
+    position: absolute;															//posição absolute
+    padding-top: 30px;															//espaçamento de cima 30px
+    right: 1%;																//é o mesmo que por o padding left, isto vai dar um "saltinho" para a drt
+    text-align: center;															//texto ao centro
+    font-weight: bold;															//grossura da letra negrito
+    text-transform: uppercase;													//letras maiusculas
+    font-size: 12px;															//tamanho da letra 12
+}
+
+.job-type span{
+    display: block;															//display block 
+    width: 100%;																//largura de 100% 
+    height: 20px;																//altura de 20px
+    line-height: 20px;															//alinhar ao centro o texto na vertical
+    border-radius: 5px;															//borda redonda
+    color: white;																//cor branca
+}
+
+.clt{
+    background-color: #735FEE;													//cor de fundo azul
+}
+
+.pj{
+    background-color: #5BBC2E;													//cor de fundo verde
+}
+
+.homeoffice{    
+    background-color: #FF5A5F;													//cor de fundo vermelha
+}
+
+Agora vamos ao nosso html e:
+-Acrescentar a tag section <section id="sendjobs-container"> Depois do fim da tag </main>
+	-Criar uma div <div id="sendjobs-inner" class="wrapper">
+		-criar um titulo mais pequeno h2 <h2>Envie uma vag....</h2>
+		-Criar um paragrafo <p>Garantimos que a sua vaga será...</p>
+		-Criar um botão com hiperligação com o nome "Enviar vaga"
+
+        <section id="sendjobs-container">
+            <div id="sendjobs-inner" class="wrapper">
+                <h2>Envie uma vaga que será vista por milhares candidatos</h2>
+                <p>Garantimos que a sua vaga será exposta assim que preencher os dados.</br>
+                Esperemos que obtenha uma resposta rapidamente.</br>
+                Agradecemos a sua confiança<br>
+                E que com a nossa ajuda, encontre um trabalhador à altura!</br>
+                Até breve.</p>
+                <a href="#" class="light-btn">Enviar vaga</a>
+	      </div>
+	  </section>
+
+
+O nosso codigo fica:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empregos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/0d22ec1ed3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">																	//div com tudo do header dentro
+        <header>																			
+            <nav>																			//barra de navegação dentro da div
+                <div class="nav-container">														//div dentro da barra de nav
+                    <img id="logo" src="img/logo.png" alt="jobfinder">										//img do logo
+                    <ul>																	//listas nao ordenadas
+                        <li><a href="#">Encontrar vaga</a></li>											//lista encontrar...
+                        <li><a href="#">Enviar candidatura</a></li>										//lista enviar...
+                        <li><a href="#">Contacto</a></li>												//lista contacto
+                    </ul>
+                </div>
+            </nav>
+            <div id="main-banner">																//div com tudo dentro dela
+                <div id="search-form">															//div dentro de outra div
+                    <h1>A maneira mais facil de encontrar emprego</h1>										//titulo
+                    <p>liga-te de forma gratuita às melhores empresas e consegue o emprego dos teus sonhos</p>			/paragrafo
+                    <form>																	//formulario
+                        <input type="text" name="job" id="job" placeholder="Escreve o teu cargo">					//caixa de texto com "dica dentro do que fazer"(placeholder)
+                        <select name="city" id="city">												//select city
+                            <option value="">Todas as cidades</option>										//option todas as cidades
+                        </select>	
+                        <select name="category" id="category">											//select category
+                            <option value="">Categoria</option>											//option Categoria
+                        </select>
+                        <input type="submit" value="Pesquisar">											//botão pesquisar
+                    </form>
+                </div>
+            </div>
+        </header>
+        <main id="lastjobs-container"class="wrapper">													//main (secção de conteudo principal)
+            <h1>Últimas vagas enviadas</h1>														//titulo
+            <ul>																			//listas nao ordenadas
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div
+                            <img src="/img/googlelogo.png" alt="imagem da google">								//img
+                            <div class="company-info">												//div
+                                <h3>Developer</h3>													//titulo mais pequeno
+                                <p>Google</p>														//paragrafo
+                            </div>
+                        </div>
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Mountain View, California</p>											//paragrafo
+                        </div>	
+                        <div class="job-type">														//div
+                            <span class="clt">CLT</span>												//span
+                        </div>
+                    </a>
+                </li>
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div	
+                            <img src="/img/ibmlogo.png" alt="imagem da ibm">									//img
+                            <div class="company-info">												//div
+                                <h3>DBA</h3>														//titulo mais pequeno
+                                <p>IBM</p>														//paragrafo
+                            </div>
+                        </div>																
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Armonk, New York</p>													//paragrafo
+                        </div>
+                        <div class="job-type">														//div
+                            <span class="pj">PJ</span>												//span
+                        </div>
+                    </a>
+                </li>																		
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div
+                            <img src="/img/linkedinlogo.png" alt="imagem do linkedin">							//img
+                            <div class="company-info">												//div
+                                <h3>Front-End Developer</h3>											//titulo mais pequeno
+                                <p>Linkedin</p>														//paragrafo
+                            </div>
+                        </div>	
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Sunnyvale, California</p>												//paragrafo
+                        </div>
+                        <div class="job-type">														//div
+                            <span class="homeoffice">Home Office</span>										//span
+                        </div>
+                    </a>
+                </li>                								
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div
+                            <img src="/img/facebooklogo.png" alt="imagem do facebook">							//img
+                            <div class="company-info">												//div
+                                <h3>Full Stack Developer</h3>											//titulo mais pequeno
+                                <p>Facebook</p>														//paragrafo
+                            </div>
+                        </div>
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Menlo Park, California</p>												//paragrafo
+                        </div>
+                        <div class="job-type">														//div
+                            <span class="pj">PJ</span>												//span
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="btnjobs-container">														//div
+                <a href="#" class="btnjobs">Ver mais vagas</a>											//hiperligação
+            </div>
+        </main>
+        <section id="sendjobs-container">													//section, secções menos importantes que o <main> (conteudo principal)
+            <div id="sendjobs-inner" class="wrapper">											//div
+                <h2>Envie uma vaga que será vista por milhares candidatos</h2>						//titulo mais pequeno
+                <p>Garantimos que a sua vaga será exposta assim que preencher os dados.</br>				//paragrafo
+                Esperemos que obtenha uma resposta rapidamente.</br>
+                Agradecemos a sua confiança<br>
+                E que com a nossa ajuda, encontre um trabalhador à altura!</br>
+                Até breve.</p>
+                <a href="#" class="light-btn">Enviar vaga</a>									//Botão com hiperligação
+		</div>
+	  <section>
+    </div>
+</body>
+</html>
+
+
+Agora vamos ao nosso css:
+Acrescentamos...
+
+/*Send jobs container*/
+#sendjobs-container{
+    background: url(/img/banner2.jpg) no-repeat;										//imagem de fundo, sem repetição
+    background-size: cover;														//Tamanho do backgroud para aparecer o maximo da imagem possivel na area
+    background-position: 0 25%;													//0 cima e baixo, 25% para os lados
+    padding: 15em 0;															//espaçamento em baixo e em cima do texto, para a imagem ganhar mais espaço
+}
+
+#sendjobs-container h2, #sendjobs-container p{
+    width: 600px;																//largura de 600px
+    color: white;																//cor branca
+}
+
+#sendjobs-container h2{
+    font-size: 36px;															//tamanho da letra 36px
+    margin-bottom: 50px;														//margem de baixo 50px para descolar do paragrafo
+}
+
+#sendjobs-container p{
+    font-size: 18px;															//tamanho da letra 18px
+    margin-bottom: 50px;														//margem de baixo 50px para descolar do botão
+}
+
+.light-btn{
+    background-color: white;														//cor de fundo branca
+    border: 2px solid white;														//borda à volta de 2px solid branca
+    color: #666;																//cor da letra cinza
+    font-weight: bold;															//grossura da letra negrito
+    text-transform: uppercase;													//texto todo em maiusculo
+    padding: 10px 20px;															//espaçamento 10px cima e baixo, 20px laterais
+    text-decoration: none;														//tirar o sublinhado
+    border-radius: 5px;															//bordas redondas
+    transition: 0.5s;															//transição de 0.5s quando o mouse passa por cima com o efeito hover
+}
+
+.light-btn:hover{
+    background-color: transparent;													//cor de fundo transparente
+    color: white;																//cor da letra branca
+}
+
+
+Vamos ao nosso HTML:
+-Criar outra section <section id="status-container" class="wrapper"> depois da </section> com:
+	-titulo mais pequeno "Estatisticas...."<h2 class="title-center">Estatisticas do JobFinder</h2>
+	-paragrafo "vagas abertas" <p class="p-center">As estatisticas serão atualizadas ao minuto</p>
+	-div <div> com:
+		-div <div class="status-box">
+			-span do numero(150) das status <span class="status-qtd"> 150 </span>
+			-paragrafo das "vagas abertas" <p class="status-txt"> Vagas abertas </p>
+		-copiar esta div +3x e colar [tem que ficar dentro da outra <div> sem class
+		-mudar as informações:
+			<span class="status-qtd"> 150 </span> // <span class="status-qtd"> 250 </span> // <span class="status-qtd"> 50 </span> // <span class="status-qtd"> 550 </span>
+			<p class="status-txt"> Vagas abertas </p> // <p class="status-txt"> candidatos contratados </p> // <p class="status-txt"> Empresas participantes </p> // <p class="status-txt"> candidatos </p>
+
+o nosso codigo fica:
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empregos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/0d22ec1ed3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">																	//div com tudo do header dentro
+        <header>																			
+            <nav>																			//barra de navegação dentro da div
+                <div class="nav-container">														//div dentro da barra de nav
+                    <img id="logo" src="img/logo.png" alt="jobfinder">										//img do logo
+                    <ul>																	//listas nao ordenadas
+                        <li><a href="#">Encontrar vaga</a></li>											//lista encontrar...
+                        <li><a href="#">Enviar candidatura</a></li>										//lista enviar...
+                        <li><a href="#">Contacto</a></li>												//lista contacto
+                    </ul>
+                </div>
+            </nav>
+            <div id="main-banner">																//div com tudo dentro dela
+                <div id="search-form">															//div dentro de outra div
+                    <h1>A maneira mais facil de encontrar emprego</h1>										//titulo
+                    <p>liga-te de forma gratuita às melhores empresas e consegue o emprego dos teus sonhos</p>			/paragrafo
+                    <form>																	//formulario
+                        <input type="text" name="job" id="job" placeholder="Escreve o teu cargo">					//caixa de texto com "dica dentro do que fazer"(placeholder)
+                        <select name="city" id="city">												//select city
+                            <option value="">Todas as cidades</option>										//option todas as cidades
+                        </select>	
+                        <select name="category" id="category">											//select category
+                            <option value="">Categoria</option>											//option Categoria
+                        </select>
+                        <input type="submit" value="Pesquisar">											//botão pesquisar
+                    </form>
+                </div>
+            </div>
+        </header>
+        <main id="lastjobs-container"class="wrapper">													//main (secção de conteudo principal)
+            <h1>Últimas vagas enviadas</h1>														//titulo
+            <ul>																			//listas nao ordenadas
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div
+                            <img src="/img/googlelogo.png" alt="imagem da google">								//img
+                            <div class="company-info">												//div
+                                <h3>Developer</h3>													//titulo mais pequeno
+                                <p>Google</p>														//paragrafo
+                            </div>
+                        </div>
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Mountain View, California</p>											//paragrafo
+                        </div>	
+                        <div class="job-type">														//div
+                            <span class="clt">CLT</span>												//span
+                        </div>
+                    </a>
+                </li>
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div	
+                            <img src="/img/ibmlogo.png" alt="imagem da ibm">									//img
+                            <div class="company-info">												//div
+                                <h3>DBA</h3>														//titulo mais pequeno
+                                <p>IBM</p>														//paragrafo
+                            </div>
+                        </div>																
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Armonk, New York</p>													//paragrafo
+                        </div>
+                        <div class="job-type">														//div
+                            <span class="pj">PJ</span>												//span
+                        </div>
+                    </a>
+                </li>																		
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div
+                            <img src="/img/linkedinlogo.png" alt="imagem do linkedin">							//img
+                            <div class="company-info">												//div
+                                <h3>Front-End Developer</h3>											//titulo mais pequeno
+                                <p>Linkedin</p>														//paragrafo
+                            </div>
+                        </div>	
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Sunnyvale, California</p>												//paragrafo
+                        </div>
+                        <div class="job-type">														//div
+                            <span class="homeoffice">Home Office</span>										//span
+                        </div>
+                    </a>
+                </li>                								
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div
+                            <img src="/img/facebooklogo.png" alt="imagem do facebook">							//img
+                            <div class="company-info">												//div
+                                <h3>Full Stack Developer</h3>											//titulo mais pequeno
+                                <p>Facebook</p>														//paragrafo
+                            </div>
+                        </div>
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Menlo Park, California</p>												//paragrafo
+                        </div>
+                        <div class="job-type">														//div
+                            <span class="pj">PJ</span>												//span
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="btnjobs-container">														//div
+                <a href="#" class="btnjobs">Ver mais vagas</a>											//hiperligação
+            </div>
+        </main>
+        <section id="sendjobs-container">													//section, secções menos importantes que o <main> (conteudo principal)
+            <div id="sendjobs-inner" class="wrapper">											//div
+                <h2>Envie uma vaga que será vista por milhares candidatos</h2>						//titulo mais pequeno
+                <p>Garantimos que a sua vaga será exposta assim que preencher os dados.</br>				//paragrafo
+                Esperemos que obtenha uma resposta rapidamente.</br>
+                Agradecemos a sua confiança<br>
+                E que com a nossa ajuda, encontre um trabalhador à altura!</br>
+                Até breve.</p>
+                <a href="#" class="light-btn">Enviar vaga</a>									//Botão com hiperligação
+		</div>
+	  <section>
+        <section id="status-container" class="wrapper">										//section, secções menos importantes que o <main> (conteudo principal)
+            <h2 class="title-center">Estatisticas do JobFinder</h2>								//Titulo
+            <p class="p-center">As estatisticas serão atualizadas ao minuto</p>						//paragrafo
+            <div>																	//div
+                <div class="status-box">													//div
+                    <span class="status-qtd">150</span>										//span
+                    <p class="status-txt">Vagas abertas</p>										//paragrafo
+                </div>
+                <div class="status-box">													//div
+                    <span class="status-qtd">250</span>										//span
+                    <p class="status-txt">Candidatos contratados</p>								//paragrafo
+                </div>
+                <div class="status-box">													//div
+                    <span class="status-qtd">50</span>										//span
+                    <p class="status-txt">Empresas participantes</p>								//paragrafo
+                </div>
+                <div class="status-box">													//div
+                    <span class="status-qtd">550</span>										//span
+                    <p class="status-txt">Candidatos</p>										//paragrafo
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+
+
+Agora vamos ao css:
+
+
+/*JobFinder status*/
+#status-container{
+    text-align: center;															//Texto centrado
+    padding: 5em 0;															//espaçamento de 5em cima e baixo, 0 laterais
+}
+
+.title-center{
+    font-size: 36px;															//tamanho da letra 36px
+    margin-bottom: 30px;														//Espaçamento de baixo de 30px, para descolar do paragrafo
+    text-align: center;															//texto alinhado ao centro
+}
+
+.p-center{
+    width: 80%;																//largura de 80%
+    position: relative;															//posição relativa [ajuda a centrar]
+    margin-left: auto;															//margem esquerda (espaçamento) auto [ajuda a centrar]
+    margin-right: auto;															//margem direita (espaçamento) auto [ajuda a centrar]
+    font-size: 18px;    														//tamanho da letra 18px
+}
+
+.status-box{
+    display: inline-block;														//display inline block, para os elementeos ficarem lado a lado
+    text-align: center;															//texto alinhado ao centro
+    width: 24.5%;																//largura de 24.5%
+    margin-top: 80px;															//espaçamento de cima 80px, para ficar afastado do <p>
+    border-left: 1px solid #DDD;													//borda esquerda
+    border-right: 1px solid #DDD;													//borda direita
+    height: 100px;															//altura 100px
+}
+
+.status-box:nth-child(2){														//Para tirar a borda dupla do elemento 2 (child 2)
+    border: none;																//tirar a borda
+}
+
+.status-box:nth-child(3){														//Para tirar a borda dupla do elemento 3 (child 3)
+    border-right: none;															//tirar a borda direita 
+}
+
+
+
+Vamos ao nosso html:
+
+-Criar uma section <section id="testmony-container"> depois da </section> com:
+	-div <div class="wrapper"> com:
+		-titulo mais pequeno h2 <h2>Veja o que os candidatos dizem</h2>
+		-paragrafo <p class="p-center">Aqui ficam algumas mensagens e provas dos nossos candidatos</p>
+		-div <div class="testmony-msg"> com:
+			-paragrafo <p class="testmony-msg">Ajudou-me imenso no futuro, estava sem rumo e aqui encontrei o caminho certo</p>
+			-imagem <img src="/img/avatar1.png" alt="">
+			-paragrafo <p class="testmony-name">João</p>
+		-repetir 3x esta div e mudar as informações:
+		 <p class="testmony-msg">Ajudou-me imen..//<p class="testmony-msg">Incrivel como..//<p class="testmony-msg">Consegui ter suces..//<p class="testmony-msg">Encontrei a minha empre...
+		 <img src="/img/avatar1.png" alt="">    // <img src="/img/avatar2.png" alt="">    // <img src="/img/avatar3.png" alt="">       // <img src="/img/avatar4.png" alt="">
+		 <p class="testmony-name">João</p>      // <p class="testmony-name">Beatriz</p>   // <p class="testmony-name">Pedro</p>        // <p class="testmony-name">Maria</p>
+
+o nosso codigo fica:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empregos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/0d22ec1ed3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">																	//div com tudo do header dentro
+        <header>																			
+            <nav>																			//barra de navegação dentro da div
+                <div class="nav-container">														//div dentro da barra de nav
+                    <img id="logo" src="img/logo.png" alt="jobfinder">										//img do logo
+                    <ul>																	//listas nao ordenadas
+                        <li><a href="#">Encontrar vaga</a></li>											//lista encontrar...
+                        <li><a href="#">Enviar candidatura</a></li>										//lista enviar...
+                        <li><a href="#">Contacto</a></li>												//lista contacto
+                    </ul>
+                </div>
+            </nav>
+            <div id="main-banner">																//div com tudo dentro dela
+                <div id="search-form">															//div dentro de outra div
+                    <h1>A maneira mais facil de encontrar emprego</h1>										//titulo
+                    <p>liga-te de forma gratuita às melhores empresas e consegue o emprego dos teus sonhos</p>			/paragrafo
+                    <form>																	//formulario
+                        <input type="text" name="job" id="job" placeholder="Escreve o teu cargo">					//caixa de texto com "dica dentro do que fazer"(placeholder)
+                        <select name="city" id="city">												//select city
+                            <option value="">Todas as cidades</option>										//option todas as cidades
+                        </select>	
+                        <select name="category" id="category">											//select category
+                            <option value="">Categoria</option>											//option Categoria
+                        </select>
+                        <input type="submit" value="Pesquisar">											//botão pesquisar
+                    </form>
+                </div>
+            </div>
+        </header>
+        <main id="lastjobs-container"class="wrapper">													//main (secção de conteudo principal)
+            <h1>Últimas vagas enviadas</h1>														//titulo
+            <ul>																			//listas nao ordenadas
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div
+                            <img src="/img/googlelogo.png" alt="imagem da google">								//img
+                            <div class="company-info">												//div
+                                <h3>Developer</h3>													//titulo mais pequeno
+                                <p>Google</p>														//paragrafo
+                            </div>
+                        </div>
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Mountain View, California</p>											//paragrafo
+                        </div>	
+                        <div class="job-type">														//div
+                            <span class="clt">CLT</span>												//span
+                        </div>
+                    </a>
+                </li>
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div	
+                            <img src="/img/ibmlogo.png" alt="imagem da ibm">									//img
+                            <div class="company-info">												//div
+                                <h3>DBA</h3>														//titulo mais pequeno
+                                <p>IBM</p>														//paragrafo
+                            </div>
+                        </div>																
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Armonk, New York</p>													//paragrafo
+                        </div>
+                        <div class="job-type">														//div
+                            <span class="pj">PJ</span>												//span
+                        </div>
+                    </a>
+                </li>																		
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div
+                            <img src="/img/linkedinlogo.png" alt="imagem do linkedin">							//img
+                            <div class="company-info">												//div
+                                <h3>Front-End Developer</h3>											//titulo mais pequeno
+                                <p>Linkedin</p>														//paragrafo
+                            </div>
+                        </div>	
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Sunnyvale, California</p>												//paragrafo
+                        </div>
+                        <div class="job-type">														//div
+                            <span class="homeoffice">Home Office</span>										//span
+                        </div>
+                    </a>
+                </li>                								
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div
+                            <img src="/img/facebooklogo.png" alt="imagem do facebook">							//img
+                            <div class="company-info">												//div
+                                <h3>Full Stack Developer</h3>											//titulo mais pequeno
+                                <p>Facebook</p>														//paragrafo
+                            </div>
+                        </div>
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Menlo Park, California</p>												//paragrafo
+                        </div>
+                        <div class="job-type">														//div
+                            <span class="pj">PJ</span>												//span
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="btnjobs-container">														//div
+                <a href="#" class="btnjobs">Ver mais vagas</a>											//hiperligação
+            </div>
+        </main>
+        <section id="sendjobs-container">													//section, secções menos importantes que o <main> (conteudo principal)
+            <div id="sendjobs-inner" class="wrapper">											//div
+                <h2>Envie uma vaga que será vista por milhares candidatos</h2>						//titulo mais pequeno
+                <p>Garantimos que a sua vaga será exposta assim que preencher os dados.</br>				//paragrafo
+                Esperemos que obtenha uma resposta rapidamente.</br>
+                Agradecemos a sua confiança<br>
+                E que com a nossa ajuda, encontre um trabalhador à altura!</br>
+                Até breve.</p>
+                <a href="#" class="light-btn">Enviar vaga</a>									//Botão com hiperligação
+		</div>
+	  </section>
+        <section id="status-container" class="wrapper">										//section, secções menos importantes que o <main> (conteudo principal)
+            <h2 class="title-center">Estatisticas do JobFinder</h2>								//titulo
+            <p class="p-center">As estatisticas serão atualizadas ao minuto.<br>Agradecemos o vosso 			//paragrafo
+		    apoio e temos muito prazer em fazer
+                parte do vosso futuro. <br> Boa sorte!
+            </p>
+            <div>																	//div "pai"
+                <div class="status-box">													//div
+                    <span class="status-qtd">150</span>										//span
+                    <p class="status-txt">Vagas abertas</p>										//paragrafo
+                </div>
+                <div class="status-box">													//div
+                    <span class="status-qtd">250</span>										//span
+                    <p class="status-txt">Candidatos contratados</p>								//paragrafo
+                </div>
+                <div class="status-box">													//div
+                    <span class="status-qtd">50</span>										//span
+                    <p class="status-txt">Empresas participantes</p>								//paragrafo
+                </div>
+                <div class="status-box">													//div
+                    <span class="status-qtd">550</span>										//span
+                    <p class="status-txt">Candidatos</p>										//paragrafo
+                </div>
+            </div>	
+        </section>	
+        <section id="testmony-container">													//section, secções menos importantes que o <main> (conteudo principal)
+            <div class="wrapper">														//div
+                <h2>Veja o que os candidatos dizem</h2>										//titulo mais pequeno
+                <p class="p-center">Aqui ficam algumas mensagens e provas dos nossos candidatos</p>			//paragrafo
+                <div class="testmony-box">												//div
+                    <p class="testmony-msg">Ajudou-me imenso no futuro, estava sem rumo e aqui				//paragrafo 
+				encontrei o caminho certo.<br>obrigado JobFinder pela oportunidade</p>
+                    <img src="/img/avatar1.png" alt="">										//imagem
+                    <p class="testmony-name">João</p>											//paragrafo
+                </div>
+                <div class="testmony-box">												//div
+                    <p class="testmony-msg">Incrivel como a nossa vida pode mudar de um dia para o outro! 		//paragrafo
+				Estava desempregado e encontrei um emprego incrivel.<br>
+                        obrigado JobFinder pela oportunidade
+                    </p>
+                    <img src="/img/avatar2.png" alt="">										//imagem
+                    <p class="testmony-name">Beatriz</p>										//paragrafo
+                </div>
+                <div class="testmony-box">												//div
+                    <p class="testmony-msg">Consegui ter sucesso e trabalhar naquilo que realmente gosto.		//paragrafo
+			      Sempre achei importante e só depois de conhecer 
+                   	este site é que consegui. <br> Obrigado JobFinder pela oportunidade</p>
+                    <img src="/img/avatar3.png" alt="">										//imagem
+                    <p class="testmony-name">Pedro</p>										//paragrafo
+                </div>
+                <div class="testmony-box">												//div
+                    <p class="testmony-msg">Encontrei a minha empresa de sonho, temos bom ambiente, 			//paragrafo
+				boas amizades e bons salarios! É tudo o que se pode pedir.<br>
+                        Obrigado JobFinder pela oportunidade
+                    </p>
+                    <img src="/img/avatar4.png" alt="">										//imagem
+                    <p class="testmony-name">Maria</p>										//paragrafo
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+
+
+Vamos ao nosso css:
+
+/* testmony container */
+#testmony-container{
+    background: url(/img/banner7.jpg) no-repeat;											//imagem de fundo sem repetição
+    background-size: cover;															//para preencher o maximo possivel do ecra, para vermos mais img
+    padding: 10em 0;																//espaçamento 10em cima e baixo, 0 laterais
+}
+
+#testmony-container h2,#testmony-container p{
+    color: white;																	//cor da letra branca
+    text-align: center;																//texto ao centro
+}
+
+#testmony-container h2{
+    font-size: 36px;																//tamanho da letra 36px
+    margin-bottom: 50px;															//margem 50px, espaçamento entre o h2 do p, para nao ficarem colados
+}
+
+#testmony-container p{
+    font-size: 18px;																//tamanho da letra 18px
+    margin-bottom: 50px;															//margem 50px, espaçamento entre o p dos textos 
+}
+
+.testmony-box{
+    display: inline-block;															//display inline block para ficarem ao lado uns dos outros
+    width: 24.5%;																	//largura 24.5% para conseguir aproveitar o maximo da tela
+    text-align: center;																//texto ao centro
+}
+
+#testmony-container .testmony-box .testmony-msg{
+    background-color: #FFF;															//cor de fundo branca
+    color: #666;																	//cor da letra cinza
+    border-radius: 10px;															//borda redonda
+    padding: 20px;																//espaçamento geral 20px para distanciar do fim da caixinha
+    width: 50%;																	//largura 50% daqueles 24.5% do "pai"
+    position: relative;																//posição relative para poder alinhar ao centro com o margin
+    margin: 35px auto;																//margin 35px auto para alinhar ao centro
+    font-style: italic;																//letra em italico
+}
+.testmony-msg:after{																//pseudo seletor da msg, para fazermos o triangulo na caixa
+    content: "";																	//content vazio
+    width: 0;																	//largura 0
+    height: 0;																	//altura 0
+    border-left: 20px solid transparent;													//borda esquerda 20px solid transparente [fazer o triangulo}
+    border-right: 20px solid transparent;													//borda direita 20px solid transparente [fazer o triangulo}
+    border-top: 20px solid white;														//borda de cima 20px solid white [fazer o triangulo}
+    position: absolute;																//posição absolute 
+    bottom: -20px;																//20px para baixo para nao ficar em cima do texto
+    left: 0;																	//esquerda 0 para ajudar a centralizar juntamente com a position absolute
+    right: 0;																	//direita 0 para ajudar a centralizar juntamente com a position absolute
+    margin-left: auto;																//margem esquerda auto [centralizar na horizontal]
+    margin-right: auto;																//margem direita auto [centralizar na horizontal]
+}
+
+.testmony-box img{
+    width: 100px;			//largura 100px
+    height: 100px;		//altura 100px
+    border: 1px solid #CCC;	//borda à volta
+    border-radius: 50%;		//borda redonda
+}
+
+.testmony-name{
+    font-weight: bold;		//texto negrito
+}
+
+
+Agora no nosso html:
+-Criar uma section <section id="blog-container" class="wrapper"> depois da </section> com:
+	-titulo pequeno h2 "ults art" <h2 class="title-center">Últimos artigos</h2>
+	-paragrafo <p class="p-center">Aqui encontram-se os nossos últimos...</p>
+	-div <div class="article-box"> com:
+		-img <img src="/img/blog1.jpg" alt="img blog">
+		-titulo pequeno h4 <h4><a href="#">Article title</a></h4>
+		-paragrafo <p class="article-date">27 de junho de 2022 | 10 comentários</p>
+		-paragrafo <p class="article-resume"></p>
+		-botão com hiperligação <a href="#" class="article-btn light-btn">Ler post</a>
+	-copiar esta div 2x para ficarmos com 3 e mudar as informações:
+		<img src="/img/blog1.jpg" alt="img blog"> 					    // <img src="/img/blog2.jpg" alt="img blog"> // <img src="/img/blog3.jpg" alt="img blog">
+		-titulo pequeno h4 <h4><a href="#">Article title 1</a></h4>                 // <h4><a href="#">Article title 2</a></h4>  // <h4><a href="#">Article title 3</a></h4>
+		-paragrafo <p class="article-date">27 de junho de 2022 | 10 comentários</p> // <p class="article-date">10 de jun...</p>  // <p class="article-date">25 de abril...</p>
+		-paragrafo <p class="article-resume">resumo 1</p> 				    // <p class="article-resume">resumo 2</p>    // <p class="article-resume">resumo 3</p>
+							resumo: resumo 1 // resumo 2 // resumo 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis.
+
+O codigo fica:
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empregos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/0d22ec1ed3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">																	//div com tudo do header dentro
+        <header>																			
+            <nav>																			//barra de navegação dentro da div
+                <div class="nav-container">														//div dentro da barra de nav
+                    <img id="logo" src="img/logo.png" alt="jobfinder">										//img do logo
+                    <ul>																	//listas nao ordenadas
+                        <li><a href="#">Encontrar vaga</a></li>											//lista encontrar...
+                        <li><a href="#">Enviar candidatura</a></li>										//lista enviar...
+                        <li><a href="#">Contacto</a></li>												//lista contacto
+                    </ul>
+                </div>
+            </nav>
+            <div id="main-banner">																//div com tudo dentro dela
+                <div id="search-form">															//div dentro de outra div
+                    <h1>A maneira mais facil de encontrar emprego</h1>										//titulo
+                    <p>liga-te de forma gratuita às melhores empresas e consegue o emprego dos teus sonhos</p>			/paragrafo
+                    <form>																	//formulario
+                        <input type="text" name="job" id="job" placeholder="Escreve o teu cargo">					//caixa de texto com "dica dentro do que fazer"(placeholder)
+                        <select name="city" id="city">												//select city
+                            <option value="">Todas as cidades</option>										//option todas as cidades
+                        </select>	
+                        <select name="category" id="category">											//select category
+                            <option value="">Categoria</option>											//option Categoria
+                        </select>
+                        <input type="submit" value="Pesquisar">											//botão pesquisar
+                    </form>
+                </div>
+            </div>
+        </header>
+        <main id="lastjobs-container"class="wrapper">													//main (secção de conteudo principal)
+            <h1>Últimas vagas enviadas</h1>														//titulo
+            <ul>																			//listas nao ordenadas
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div
+                            <img src="/img/googlelogo.png" alt="imagem da google">								//img
+                            <div class="company-info">												//div
+                                <h3>Developer</h3>													//titulo mais pequeno
+                                <p>Google</p>														//paragrafo
+                            </div>
+                        </div>
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Mountain View, California</p>											//paragrafo
+                        </div>	
+                        <div class="job-type">														//div
+                            <span class="clt">CLT</span>												//span
+                        </div>
+                    </a>
+                </li>
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div	
+                            <img src="/img/ibmlogo.png" alt="imagem da ibm">									//img
+                            <div class="company-info">												//div
+                                <h3>DBA</h3>														//titulo mais pequeno
+                                <p>IBM</p>														//paragrafo
+                            </div>
+                        </div>																
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Armonk, New York</p>													//paragrafo
+                        </div>
+                        <div class="job-type">														//div
+                            <span class="pj">PJ</span>												//span
+                        </div>
+                    </a>
+                </li>																		
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div
+                            <img src="/img/linkedinlogo.png" alt="imagem do linkedin">							//img
+                            <div class="company-info">												//div
+                                <h3>Front-End Developer</h3>											//titulo mais pequeno
+                                <p>Linkedin</p>														//paragrafo
+                            </div>
+                        </div>	
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Sunnyvale, California</p>												//paragrafo
+                        </div>
+                        <div class="job-type">														//div
+                            <span class="homeoffice">Home Office</span>										//span
+                        </div>
+                    </a>
+                </li>                								
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div
+                            <img src="/img/facebooklogo.png" alt="imagem do facebook">							//img
+                            <div class="company-info">												//div
+                                <h3>Full Stack Developer</h3>											//titulo mais pequeno
+                                <p>Facebook</p>														//paragrafo
+                            </div>
+                        </div>
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Menlo Park, California</p>												//paragrafo
+                        </div>
+                        <div class="job-type">														//div
+                            <span class="pj">PJ</span>												//span
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="btnjobs-container">														//div
+                <a href="#" class="btnjobs">Ver mais vagas</a>											//hiperligação
+            </div>
+        </main>
+        <section id="sendjobs-container">													//section, secções menos importantes que o <main> (conteudo principal)
+            <div id="sendjobs-inner" class="wrapper">											//div
+                <h2>Envie uma vaga que será vista por milhares candidatos</h2>						//titulo mais pequeno
+                <p>Garantimos que a sua vaga será exposta assim que preencher os dados.</br>				//paragrafo
+                Esperemos que obtenha uma resposta rapidamente.</br>
+                Agradecemos a sua confiança<br>
+                E que com a nossa ajuda, encontre um trabalhador à altura!</br>
+                Até breve.</p>
+                <a href="#" class="light-btn">Enviar vaga</a>									//Botão com hiperligação
+		</div>
+	  </section>
+        <section id="status-container" class="wrapper">										//section, secções menos importantes que o <main> (conteudo principal)
+            <h2 class="title-center">Estatisticas do JobFinder</h2>								//titulo
+            <p class="p-center">As estatisticas serão atualizadas ao minuto.<br>Agradecemos o vosso 			//paragrafo
+		    apoio e temos muito prazer em fazer
+                parte do vosso futuro. <br> Boa sorte!
+            </p>
+            <div>																	//div "pai"
+                <div class="status-box">													//div
+                    <span class="status-qtd">150</span>										//span
+                    <p class="status-txt">Vagas abertas</p>										//paragrafo
+                </div>
+                <div class="status-box">													//div
+                    <span class="status-qtd">250</span>										//span
+                    <p class="status-txt">Candidatos contratados</p>								//paragrafo
+                </div>
+                <div class="status-box">													//div
+                    <span class="status-qtd">50</span>										//span
+                    <p class="status-txt">Empresas participantes</p>								//paragrafo
+                </div>
+                <div class="status-box">													//div
+                    <span class="status-qtd">550</span>										//span
+                    <p class="status-txt">Candidatos</p>										//paragrafo
+                </div>
+            </div>	
+        </section>	
+        <section id="testmony-container">													//section, secções menos importantes que o <main> (conteudo principal)
+            <div class="wrapper">														//div
+                <h2>Veja o que os candidatos dizem</h2>										//titulo mais pequeno
+                <p class="p-center">Aqui ficam algumas mensagens e provas dos nossos candidatos</p>			//paragrafo
+                <div class="testmony-box">												//div
+                    <p class="testmony-msg">Ajudou-me imenso no futuro, estava sem rumo e aqui				//paragrafo 
+				encontrei o caminho certo.<br>obrigado JobFinder pela oportunidade</p>
+                    <img src="/img/avatar1.png" alt="">										//imagem
+                    <p class="testmony-name">João</p>											//paragrafo
+                </div>
+                <div class="testmony-box">												//div
+                    <p class="testmony-msg">Incrivel como a nossa vida pode mudar de um dia para o outro! 		//paragrafo
+				Estava desempregado e encontrei um emprego incrivel.<br>
+                        obrigado JobFinder pela oportunidade
+                    </p>
+                    <img src="/img/avatar2.png" alt="">										//imagem
+                    <p class="testmony-name">Beatriz</p>										//paragrafo
+                </div>
+                <div class="testmony-box">												//div
+                    <p class="testmony-msg">Consegui ter sucesso e trabalhar naquilo que realmente gosto.		//paragrafo
+			      Sempre achei importante e só depois de conhecer 
+                   	este site é que consegui. <br> Obrigado JobFinder pela oportunidade</p>
+                    <img src="/img/avatar3.png" alt="">										//imagem
+                    <p class="testmony-name">Pedro</p>										//paragrafo
+                </div>
+                <div class="testmony-box">												//div
+                    <p class="testmony-msg">Encontrei a minha empresa de sonho, temos bom ambiente, 			//paragrafo
+				boas amizades e bons salarios! É tudo o que se pode pedir.<br>
+                        Obrigado JobFinder pela oportunidade
+                    </p>
+                    <img src="/img/avatar4.png" alt="">										//imagem
+                    <p class="testmony-name">Maria</p>										//paragrafo
+                </div>
+            </div>
+        </section>
+        <section id="blog-container" class="wrapper">											//section, secções menos importantes que o <main> (conteudo principal)
+            <h2 class="title-center">Últimos artigos</h2>										//titulo (mais pequeno)
+            <p class="p-center">Aqui encontram-se os nossos últimos artigos, atualizados ao minuto. <br>					//paragrafo
+                Podes ler todos os nossos artigos aqui em baixo.</p>
+            <div class="article-box">													//div
+                <img src="/img/blog1.jpg" alt="img blog">										//img
+                <h4><a href="#">Article title 1</a></h4>										//titulo (mais pequeno)
+                <p class="article-date">27 de junho de 2022 | 10 comentários</p>						//paragrafo
+                <p class="article-resume">resumo 1</p>										//paragrafo
+                <a href="#" class="article-btn light-btn">Ler post</a>								//botão com hiperligação
+            </div>
+            <div class="article-box">													//div
+                <img src="/img/blog1.jpg" alt="img blog">										//img
+                <h4><a href="#">Article title 1</a></h4>										//titulo (mais pequeno)
+                <p class="article-date">13 de junho de 2022 | 6 comentários</p>						//paragrafo
+                <p class="article-resume">resumo 2</p>										//paragrafo
+                <a href="#" class="article-btn light-btn">Ler post</a>								//botão com hiperligação
+            </div>
+            <div class="article-box">													//div
+                <img src="/img/blog1.jpg" alt="img blog">										//img
+                <h4><a href="#">Article title 1</a></h4>										//botão com hiperligação
+                <p class="article-date">22 de abril de 2022 | 12 comentários</p>						//paragrafo
+                <p class="article-resume">resumo 3</p>										//paragrafo
+                <a href="#" class="article-btn light-btn">Ler post</a>								//botão com hiperligação
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+
+
+
+Agora vamos ao nosso css:
+
+
+/*blog container*/
+#blog-container{
+    text-align: center;															//texto ao centro
+    padding: 5em 0;															//espaço de 5em baixo e cima, 0 laterais, pra centrar o conteudo
+}
+
+#blog-container .p-center{	
+    margin-bottom: 60px;														//margem de baixo 60px, espaçamento de baixo 60px
+}
+
+.article-box{
+    display: inline-block;														//display inlineblock para ficarem lado a lado
+    width: 31%;																//largura 31% da div "pai"
+    padding: 0 1%;															//espaço de 0 cima e baixo e 1% lados para distanciar os artigos
+    text-align: left;															//texto ao centro
+}
+
+.article-box img{
+    width: 100%;																//largura 100% da div "pai"
+    border-radius: 5px;															//bordas redondas
+    margin-bottom: 10px;														//margem de baixo 10px, espaçamento de baixo 10px
+}
+
+.article-box h4{
+    font-size: 24px;															//tamanho da letra 24px
+    margin-bottom: 15px															//margem de baixo 15px, espaçamento de baixo 15px
+}
+
+.article-box h4 a{
+    text-decoration: none;														//tirar o sublinhado
+    color: #666																//cor da letra cinza
+}
+
+.article.date{
+    font-size: 12px;															//tamanho da letra 12px
+    margin-bottom: 15px;														//margem de baixo 15px, espaçamento de baixo 15px
+}
+
+.article-resume{
+    font-size: 12px;															//tamanho da letra 12px
+    margin-bottom: 30px;														//margem de baixo 30px, espaçamento de baixo 30px
+}
+
+.article-btn{																//Estámos a REutilizar o outro btn "light-btn" do "Enviar vaga"
+    background-color: #3381F3;													//cor de fundo azul
+    border-color: #3381F3;														//cor da borda azul
+    color: white;																//cor da letra branca
+}																		//nao precisamos da transition 0.5s, pq estamos a reutilizar o light-bnt
+
+.article-btn:hover{
+    background-color: white;														//cor de fundo branco (quando o rato passa por cima)
+    color: #3381F3;															//cor da letra azul
+}
+
+
+
+Voltamos ao html:
+-Criar o footer <footer> com:
+	-Criar uma div <div class="wrapper"> com:
+		-Criar uma div <div class="footer-box"> com:
+			-criar uma div <div class="company-footer"> com:
+				-<img src="/img/logo.png" alt="imagem do logo">
+                        -<h2>JobFinder</h2>
+                        -<p>A maneira mais fácil de encontrar o seu proximo emprego.</p>
+		-Criar uma div <div class="footer-box"> depois da div </div footer-box> com:
+			-div <div class="article-footer"></div>
+                  	-titulo mais pequeno <h2>Artigos recentes</h2>
+                        -listas nao ordenadas <ul class="footer-list footer-article-list">
+                        	-listas <li>
+                            		-botão com hiperligação <a href="#">Como conseguir o primeiro emprego em tempos de crise?</a>
+                            		-span <span class="article-date">05 de maio de 2022</span>
+                        	 -repetir 2x as listas
+					 -listas <li>
+                            		-botão com hiperligação <a href="#">Como conseguir o primeiro emprego em tempos de crise?</a>
+                            		-span <span class="article-date">05 de maio de 2022</span>
+					 -listas <li>
+                            		-botão com hiperligação <a href="#">Como conseguir o primeiro emprego em tempos de crise?</a>
+                            		-span <span class="article-date">05 de maio de 2022</span>
+		-Criar uma div <div class="footer-box"> depois da div </div footer-box> com:
+			-titulo mais pequeno h2 <h2>Encontre-nos nas redes sociais</h2>
+			-listas nao ordenadas <ul class="footer-list">
+				-listas <li>
+					-botão com hiperligação <a href="#">
+						-icon do facebook <i class="fab fa-facebook-square"></i>
+						-span <span>Facebook</span>
+				-repetir 2x as listas e mudar as informações:
+				-listas <li>
+					-botão com hiperligação <a href="#">
+						-icon do facebook <i class="fab fa-instagram"></i>
+						-span <span>Instagram</span> 
+				-listas <li>
+					-botão com hiperligação <a href="#">
+						-icon do facebook <i class="fab fa-linkedin"></i>
+						-span <span>Linkedin</span>
+
+
+	-Criar uma div <div class="footer-bottom"> depois da div wrapper e antes do fim do footer </footer> com:
+		-div <div class="wrapper">
+			-paragrafo <p>Claudio Cunha - 2022</p>
+
+
+
+O nosso codigo fica:
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empregos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/0d22ec1ed3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">																	//div com tudo do header dentro
+        <header>																			
+            <nav>																			//barra de navegação dentro da div
+                <div class="nav-container">														//div dentro da barra de nav
+                    <img id="logo" src="img/logo.png" alt="jobfinder">										//img do logo
+                    <ul>																	//listas nao ordenadas
+                        <li><a href="#">Encontrar vaga</a></li>											//lista encontrar...
+                        <li><a href="#">Enviar candidatura</a></li>										//lista enviar...
+                        <li><a href="#">Contacto</a></li>												//lista contacto
+                    </ul>
+                </div>
+            </nav>
+            <div id="main-banner">																//div com tudo dentro dela
+                <div id="search-form">															//div dentro de outra div
+                    <h1>A maneira mais facil de encontrar emprego</h1>										//titulo
+                    <p>liga-te de forma gratuita às melhores empresas e consegue o emprego dos teus sonhos</p>			/paragrafo
+                    <form>																	//formulario
+                        <input type="text" name="job" id="job" placeholder="Escreve o teu cargo">					//caixa de texto com "dica dentro do que fazer"(placeholder)
+                        <select name="city" id="city">												//select city
+                            <option value="">Todas as cidades</option>										//option todas as cidades
+                        </select>	
+                        <select name="category" id="category">											//select category
+                            <option value="">Categoria</option>											//option Categoria
+                        </select>
+                        <input type="submit" value="Pesquisar">											//botão pesquisar
+                    </form>
+                </div>
+            </div>
+        </header>
+        <main id="lastjobs-container"class="wrapper">													//main (secção de conteudo principal)
+            <h1>Últimas vagas enviadas</h1>														//titulo
+            <ul>																			//listas nao ordenadas
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div
+                            <img src="/img/googlelogo.png" alt="imagem da google">								//img
+                            <div class="company-info">												//div
+                                <h3>Developer</h3>													//titulo mais pequeno
+                                <p>Google</p>														//paragrafo
+                            </div>
+                        </div>
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Mountain View, California</p>											//paragrafo
+                        </div>	
+                        <div class="job-type">														//div
+                            <span class="clt">CLT</span>												//span
+                        </div>
+                    </a>
+                </li>
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div	
+                            <img src="/img/ibmlogo.png" alt="imagem da ibm">									//img
+                            <div class="company-info">												//div
+                                <h3>DBA</h3>														//titulo mais pequeno
+                                <p>IBM</p>														//paragrafo
+                            </div>
+                        </div>																
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Armonk, New York</p>													//paragrafo
+                        </div>
+                        <div class="job-type">														//div
+                            <span class="pj">PJ</span>												//span
+                        </div>
+                    </a>
+                </li>																		
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div
+                            <img src="/img/linkedinlogo.png" alt="imagem do linkedin">							//img
+                            <div class="company-info">												//div
+                                <h3>Front-End Developer</h3>											//titulo mais pequeno
+                                <p>Linkedin</p>														//paragrafo
+                            </div>
+                        </div>	
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Sunnyvale, California</p>												//paragrafo
+                        </div>
+                        <div class="job-type">														//div
+                            <span class="homeoffice">Home Office</span>										//span
+                        </div>
+                    </a>
+                </li>                								
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div
+                            <img src="/img/facebooklogo.png" alt="imagem do facebook">							//img
+                            <div class="company-info">												//div
+                                <h3>Full Stack Developer</h3>											//titulo mais pequeno
+                                <p>Facebook</p>														//paragrafo
+                            </div>
+                        </div>
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Menlo Park, California</p>												//paragrafo
+                        </div>
+                        <div class="job-type">														//div
+                            <span class="pj">PJ</span>												//span
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="btnjobs-container">														//div
+                <a href="#" class="btnjobs">Ver mais vagas</a>											//hiperligação
+            </div>
+        </main>
+        <section id="sendjobs-container">													//section, secções menos importantes que o <main> (conteudo principal)
+            <div id="sendjobs-inner" class="wrapper">											//div
+                <h2>Envie uma vaga que será vista por milhares candidatos</h2>						//titulo mais pequeno
+                <p>Garantimos que a sua vaga será exposta assim que preencher os dados.</br>				//paragrafo
+                Esperemos que obtenha uma resposta rapidamente.</br>
+                Agradecemos a sua confiança<br>
+                E que com a nossa ajuda, encontre um trabalhador à altura!</br>
+                Até breve.</p>
+                <a href="#" class="light-btn">Enviar vaga</a>									//Botão com hiperligação
+		</div>
+	  </section>
+        <section id="status-container" class="wrapper">										//section, secções menos importantes que o <main> (conteudo principal)
+            <h2 class="title-center">Estatisticas do JobFinder</h2>								//titulo
+            <p class="p-center">As estatisticas serão atualizadas ao minuto.<br>Agradecemos o vosso 			//paragrafo
+		    apoio e temos muito prazer em fazer
+                parte do vosso futuro. <br> Boa sorte!
+            </p>
+            <div>																	//div "pai"
+                <div class="status-box">													//div
+                    <span class="status-qtd">150</span>										//span
+                    <p class="status-txt">Vagas abertas</p>										//paragrafo
+                </div>
+                <div class="status-box">													//div
+                    <span class="status-qtd">250</span>										//span
+                    <p class="status-txt">Candidatos contratados</p>								//paragrafo
+                </div>
+                <div class="status-box">													//div
+                    <span class="status-qtd">50</span>										//span
+                    <p class="status-txt">Empresas participantes</p>								//paragrafo
+                </div>
+                <div class="status-box">													//div
+                    <span class="status-qtd">550</span>										//span
+                    <p class="status-txt">Candidatos</p>										//paragrafo
+                </div>
+            </div>	
+        </section>	
+        <section id="testmony-container">													//section, secções menos importantes que o <main> (conteudo principal)
+            <div class="wrapper">														//div
+                <h2>Veja o que os candidatos dizem</h2>										//titulo mais pequeno
+                <p class="p-center">Aqui ficam algumas mensagens e provas dos nossos candidatos</p>			//paragrafo
+                <div class="testmony-box">												//div
+                    <p class="testmony-msg">Ajudou-me imenso no futuro, estava sem rumo e aqui				//paragrafo 
+				encontrei o caminho certo.<br>obrigado JobFinder pela oportunidade</p>
+                    <img src="/img/avatar1.png" alt="">										//imagem
+                    <p class="testmony-name">João</p>											//paragrafo
+                </div>
+                <div class="testmony-box">												//div
+                    <p class="testmony-msg">Incrivel como a nossa vida pode mudar de um dia para o outro! 		//paragrafo
+				Estava desempregado e encontrei um emprego incrivel.<br>
+                        obrigado JobFinder pela oportunidade
+                    </p>
+                    <img src="/img/avatar2.png" alt="">										//imagem
+                    <p class="testmony-name">Beatriz</p>										//paragrafo
+                </div>
+                <div class="testmony-box">												//div
+                    <p class="testmony-msg">Consegui ter sucesso e trabalhar naquilo que realmente gosto.		//paragrafo
+			      Sempre achei importante e só depois de conhecer 
+                   	este site é que consegui. <br> Obrigado JobFinder pela oportunidade</p>
+                    <img src="/img/avatar3.png" alt="">										//imagem
+                    <p class="testmony-name">Pedro</p>										//paragrafo
+                </div>
+                <div class="testmony-box">												//div
+                    <p class="testmony-msg">Encontrei a minha empresa de sonho, temos bom ambiente, 			//paragrafo
+				boas amizades e bons salarios! É tudo o que se pode pedir.<br>
+                        Obrigado JobFinder pela oportunidade
+                    </p>
+                    <img src="/img/avatar4.png" alt="">										//imagem
+                    <p class="testmony-name">Maria</p>										//paragrafo
+                </div>
+            </div>
+        </section>
+        <section id="blog-container" class="wrapper">											//section, secções menos importantes que o <main> (conteudo principal)
+            <h2 class="title-center">Últimos artigos</h2>										//titulo (mais pequeno)
+            <p class="p-center">Aqui encontram-se os nossos últimos artigos, atualizados ao minuto. <br>					//paragrafo
+                Podes ler todos os nossos artigos aqui em baixo.</p>
+            <div class="article-box">													//div
+                <img src="/img/blog1.jpg" alt="img blog">										//img
+                <h4><a href="#">Article title 1</a></h4>										//titulo (mais pequeno)
+                <p class="article-date">27 de junho de 2022 | 10 comentários</p>						//paragrafo
+                <p class="article-resume">resumo 1</p>										//paragrafo
+                <a href="#" class="article-btn light-btn">Ler post</a>								//botão com hiperligação
+            </div>
+            <div class="article-box">													//div
+                <img src="/img/blog1.jpg" alt="img blog">										//img
+                <h4><a href="#">Article title 1</a></h4>										//titulo (mais pequeno)
+                <p class="article-date">13 de junho de 2022 | 6 comentários</p>						//paragrafo
+                <p class="article-resume">resumo 2</p>										//paragrafo
+                <a href="#" class="article-btn light-btn">Ler post</a>								//botão com hiperligação
+            </div>
+            <div class="article-box">													//div
+                <img src="/img/blog1.jpg" alt="img blog">										//img
+                <h4><a href="#">Article title 1</a></h4>										//botão com hiperligação
+                <p class="article-date">22 de abril de 2022 | 12 comentários</p>						//paragrafo
+                <p class="article-resume">resumo 3</p>										//paragrafo
+                <a href="#" class="article-btn light-btn">Ler post</a>								//botão com hiperligação
+            </div>
+        </section>
+        <footer>																	//rodape
+            <div class="wrapper">														//div
+                <div class="footer-box">													//div
+                    <div class="company-footer">											//div
+                        <img src="/img/logo.png" alt="imagem do logo">								//img
+                        <h2>JobFinder</h2>												//titulo mais pequeno h2
+                        <p>A maneira mais fácil de encontrar o seu proximo emprego.</p>					//paragrafo
+                    </div>
+                </div>
+                <div class="footer-box">													//div
+                    <div class="article-footer"></div>										//div
+                    <h2>Artigos recentes</h2>												//titulo mais pequeno h2
+                    <ul class="footer-list footer-article-list">									//listas nao ordenadas
+                        <li>															//lista
+                            <a href="#">Como conseguir o primeiro emprego em tempos de crise?</a>			//frase com hiperligação
+                            <span class="article-date">05 de maio de 2022</span>						//span
+                        </li>
+                        <li>
+                            <a href="#">Como conseguir o primeiro emprego em tempos de crise?</a>			//frase com hiperligação
+                            <span class="article-date">05 de maio de 2022</span>						//span
+                        </li>
+                        <li>															//lista
+                            <a href="#">Como conseguir o primeiro emprego em tempos de crise?</a>			//frase com hiperligação
+                            <span class="article-date">05 de maio de 2022</span>						//span
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-box">													//div
+                    <h2>Encontre-nos nas redes sociais</h2>										//titulo mais pequeno h2
+                    <ul class="footer-list">												//listas nao ordenadas
+                        <li>															//listas
+                            <a href="#">													//hiperligação com:
+                                <i class="fab fa-facebook-square"></i>								//icon
+                                <span>Facebook</span>											//span
+                            </a>
+                        </li>
+                        <li>															//lista
+                            <a href="#">													//hiperligação com:
+                                <i class="fab fa-instagram"></i>									//icon
+                                <span>Instagram</span>										//span
+                            </a>
+                        </li>
+                        <li>															//lista
+                            <a href="#">													//hiperligação com:
+                                <i class="fab fa-linkedin"></i>									//icon
+                                <span>Linkedin</span>											//span
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">													//div
+                <div class="wrapper">													//div
+                    <p>Claudio Cunha - 2022</p>												//paragrafo
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+Agora vamos ao nosso css:
+
+
+/* footer */
+footer{
+    background-color: #666;															//Cor de fundo cinza
+    padding-top: 5em;																//padding-top 5em, espaçamento de cima 5em
+    padding-bottom: 40px;															//padding-bottom, espaçamento de baixo 40px
+    border-top: 5px solid #000000;														//border top, espaçamento de cima 5px solid preto
+}
+
+footer h2, footer p, footer a, footer span{
+    color: #D1D1D1;																//cor da letra cinza claro
+}
+
+footer h2{
+    font-weight: 400;																//grossura da letra 400
+}
+
+footer p{
+    padding-top: 5%;																//espaçamento de cima 5%
+}
+
+footer a{
+    text-decoration: none;															//tirar o sublinhado
+}
+
+footer ul{
+    padding: 0;																	//espaçamento 0, para nao atrapalhar o layout
+}
+
+footer li{
+    list-style: none;																//tirar as bolinhas
+}
+
+.footer-box{
+    width: 31%;																	//largura 31%
+    padding: 1%;																	//espaçamento 1%
+    float: left;																	//colocar as listas da esquerda para a direita
+}
+
+footer .wrapper:after{																//limpar o float do wrapper para nao atrapalhar os proximos elementos
+    clear: both;																	//limpar 
+    content: "";																	//conteudo vazio
+    display: block;																//display block
+}
+
+.company-footer{
+    width: 80%;																	//largura 80% da div "pai"
+}
+
+.company-footer h2{
+    margin-top: 20px;																//margem de cima 20px para descolar do icon
+}
+
+.company footer h2, .company-footer p{
+    margin-bottom: 20px;															//margem de baixo 20px para descolar dos elementos de baixo
+}
+
+.footer-list li{
+    margin-bottom: 15px;															//margem de baixo 15px para descolar uma li da outra
+}
+
+.footer-list a{
+    transition: 0.5s;																//transição de 0.5s quando o mouse passa por cima com o efeito hover
+}
+
+.footer-list a:hover{
+    color: #FFF																	//cor da letra branca
+}
+
+.footer-list li:after{																//mexer no after deles pq tambem têm float e temos que limpar
+    clear: both;																	//limpar
+    content: "";																	//conteudo vazio
+    display: block;																//display block
+}
+
+.article-footer{
+    width: 80%;																	//largura 80%
+}
+
+.footer-list.footer-article-list span{													//2 classes para sobressair este css por cima do css de cima
+    display: block;																//display block, para serem posicionados em bloco
+    float: none;																	//float none, tirar o float
+}
+
+.fab{
+    font-size: 30px;																//tamanho da letra 30px
+    margin-right: 10px;																//margem direita, espaço do lado direito 10px
+    float: left;																	//float esquerdo
+}
+
+.footer-list li span{
+    float: left;																	//float esquerdo, por isso é que limpamos ali em cima
+    height: 30px;																	//altura 30px centralizar verticamente [juntamente com o de baixo]
+    line-height: 30px;																//line-heigth 30px alinhar ao centro na vertical[juntamente com o de cima]
+}
+
+.footer-bottom{
+    border-top: 1px solid #B2B2B2;														//borda em cima 1px solid preto
+}
+
+.footer-bottom p{
+    font-weight: 600;																//grossura da letra 600, negrito
+    margin-top: 40px;																//margem de cima, espaçamento de cima 40px
+}
+
+
+
+Ainda no css: 	
+
+
+/*responsive*/										//Quando a res maxima for 1024 (ex: monitores pequenos)
+@media screen and (max-width: 1024px){						//quando a tela do utilizador chegar a 1024px o css de baixo vai sobrepor o de cima(feito ate aqui)
+    #logo{
+        position: absolute;								//posição absolute
+        left: 50px;									//50px de margem do lado esquerdo, para não ficar no cantinho 
+    }
+
+    .nav-container ul{
+        float: none;									//tirar o float
+        text-align: center;								//texto ao centro
+        padding: 0;									//0 espaçamento
+    }
+
+    .nav-container ul li{	
+        position: relative;								//posição relativa para centrar
+        margin-left: auto;								//margem esquerda auto [ajuda a centrar]
+        margin-right: auto;								//margem direita auto [ajuda a centrar]
+        float: none;									//tirar o float
+        display: inline-block;							//display inline block para ficarem lado a lado 
+        margin: 0 10px;									//margem 0 cima e baixo, 10px laterais para afastar os elementos
+    }
+
+    #search-form{
+        padding-top: 25em;								//espaçamento de cima 25em
+        padding-bottom: 25em;								//espaçamento de baixo 25em
+    }
+
+    #search-form form{
+        width: 60%;									//largura de 60% da div "pai"
+        position: relative;								//posiçao relativa para centrar
+        margin-left: auto;								//margem esquerda auto [ajuda a centrar]
+        margin-right: auto;								//margem direita auto [ajuda a centrar]
+    }
+
+    #search-form form input, #search-form select{
+        display: block;									//display block, para ser uma linha cada input
+        margin: 0;									//tirar a margem para nao atrapalhar o layout
+        margin-bottom: 25px;								//margem de baixo 25px para afastar os inputs
+        width: 100%;									//largura 100% daqueles 60% da div de cima
+        border-width: 0;								//largura da borda 0, para não estragar o layout
+        padding: 10px 20px;								//espaço 10px cima e baixo, 20px laterais, para separar o texto das bordas do input
+        box-sizing: border-box;							//para os elementos ficarem na border do box deles
+    }
+
+    #lastjobs-container.wrapper, #status-container.wrapper, #blog-container.wrapper, .wrapper{
+        max-width: 960px;								//largura maxima 960px, para nao deixar chegar ate ao fim das bordas
+        padding-left: 2em;								//padding esquerdo espaço do lado esquerdo 2em, se a largura maxima nao for aplicada
+        padding-right: 2em;								//padding direito espaço do lado direito 2em, se a largura maxima nao for aplicada
+    }
+}
+
+Ainda no css:
+agora, fora do nosso @media, vamos criar outro para a res 768 (tablet), aproveitando algumas coisas do media screen 1024px de cima.
+
+
+@media screen and (max-width: 768px){									//quando a tela do utilizador chegar a 768px o css de baixo vai sobrepor o de cima(feito ate aqui)
+    .company-box{
+        width: 46%;												//largura 46%
+        padding-left: 1em;											//padding-left 1em, "em" para serem relativos à fonte
+    }
+
+    .company-box .company-info h3{
+        font-size: 1em;												//tamanho da letra 1em
+    }
+
+    .company-box .company-info p, .locality i, .locality p, .job-type span{
+        font-size: 0.8em;											//tamanho da letra 0.8em
+    }
+
+    .job-type{
+        right: 1em;												//mover para a direita 1em
+    }
+
+    #send-jobs-inner h2, #send-jobs-inner p{
+        text-shadow: 0.5px 0.5px #000;									//sombra no texto para conseguirmos ver melhor no tablet
+    }
+
+    .status-box{
+        width: 49.4%;												//largura de 49.4%
+        border: none;												//tirar as bordas, pq so queremos borda em 2 elementos
+    }
+
+    .status-box:nth-child(1), .status-box:nth-child(3){
+        border-right: 1px solid #DDD;									//borda direita 1px solid cinza claro
+    }
+
+    .testmony-box{
+        width: 49.4%;												//largura 49.4%
+    }
+
+    .article-box{
+        width: 100%;												//largura 100%
+        display: block;												//display block para os elementos ocuparem a linha toda
+        padding: 0;												//espaçamento 0
+        margin-bottom: 3em;											//margem de baixo 3em para ficarem afastados uns dos outros na horizontal
+    }
+    
+}
+
+
+
+Bem, agora vamos fazer para o mobile:
+Para o mobile precisamos de adicionar um botão ( ☰ ) na barra de navegação <nav>:
+Entao vamos a: https://releases.jquery.com 								//Servidor que hospeda o jquery para nós, nao precisamos de estar a gravar no nosso projeto
+Clicamos no 3x, minified, copiamos o codigo: 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> 
+
+Agora no fim do nosso html antes do </body>, vamos adicionar esta parte e o javascript
+então:
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="js/script.js"></script>
+
+Nesta parte do fim:
+
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+
+Agora, ainda no html, vamos adicionar o nosso icon para a barra de navegação:
+Por baixo do nosso logo na barra de navegação, adicionamos: <i class="fas fa-bars btn-menumobile"></i>
+Isto vai fazer com que fiquemos com o icon, graças ao https://fontawesome.com/, aquela parte do "fas fa-bars"
+btn-menumobile
+
+assim:
+        <header>
+            <nav>
+                <div class="nav-container">
+                    <img id="logo" src="img/logo.png" alt="jobfinder">
+                    <i class="fas fa-bars btn-menumobile"></i>
+
+E agora alteramos o nosso logo: <img id="logo" src="img/logo.png" alt="jobfinder"> para uma hiperligação que va direto até à nossa pagina principal.
+para:               <a href="index.html">
+                        <img id="logo" src="img/logo.png" alt="jobfinder">
+                    </a>
+
+e o nosso codigo da nav fica:
+
+		<nav>
+                <div class="nav-container">
+                    <a href="index.html">
+                        <img id="logo" src="img/logo.png" alt="jobfinder">
+                    </a>
+                    <i class="fas fa-bars btn-menumobile"></i>
+                    <ul>
+                        <li><a href="#">Encontrar vaga</a></li>
+                        <li><a href="#">Enviar candidatura</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+
+Agora temos um problema: O nosso icon aparece em todas as resoluções, incluindo no nosso desktop e nós so queremos que apareça na res do mobile
+Vamos ao nosso css e na parte depois do /*header*/ e antes da /*navbar*/:
+add:
+
+/*hide on desktop*/															
+.nav-container .btn-menumobile{										//na nav-container, ao botão btn-menumobile
+	display: none;												//display none - tiramos o botão
+}
+
+Feito isto, vamos continuar no css mas em baixo de tudo e:
+	
+@media screen and (max-width: 576px){									//quando a tela do utilizador chegar a 576px o css de baixo vai sobrepor o de cima(feito ate aqui)
+    .nav-container .btn-menumobile{										//na nav-container, ao botão btn-mobile
+        display: block !important;										//display em bloco e !importante,!important serve para garantir que o botão vai aparecer nessa res
+    }
+}
+
+Então, para já o nosso html está assim:
+
+HTML:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empregos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/0d22ec1ed3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">																	//div com tudo do header dentro
+        <header>																			
+            <nav>																			//barra de navegação dentro da div
+                <div class="nav-container">														//div dentro da barra de nav
+			  <a href="index.html">															//hiperligação para a pagina principal
+                    	<img id="logo" src="img/logo.png" alt="jobfinder">									//img do logo
+			  </a>
+			  <i class="fas fa-bars btn-menumobile"></i>											//icon das tres linhas horizontais para o mobile
+                    <ul>																	//listas nao ordenadas
+                        <li><a href="#">Encontrar vaga</a></li>											//lista encontrar...
+                        <li><a href="#">Enviar candidatura</a></li>										//lista enviar...
+                        <li><a href="#">Contacto</a></li>												//lista contacto
+                    </ul>
+                </div>
+            </nav>
+            <div id="main-banner">																//div com tudo dentro dela
+                <div id="search-form">															//div dentro de outra div
+                    <h1>A maneira mais facil de encontrar emprego</h1>										//titulo
+                    <p>liga-te de forma gratuita às melhores empresas e consegue o emprego dos teus sonhos</p>			/paragrafo
+                    <form>																	//formulario
+                        <input type="text" name="job" id="job" placeholder="Escreve o teu cargo">					//caixa de texto com "dica dentro do que fazer"(placeholder)
+                        <select name="city" id="city">												//select city
+                            <option value="">Todas as cidades</option>										//option todas as cidades
+                        </select>	
+                        <select name="category" id="category">											//select category
+                            <option value="">Categoria</option>											//option Categoria
+                        </select>
+                        <input type="submit" value="Pesquisar">											//botão pesquisar
+                    </form>
+                </div>
+            </div>
+        </header>
+        <main id="lastjobs-container"class="wrapper">													//main (secção de conteudo principal)
+            <h1>Últimas vagas enviadas</h1>														//titulo
+            <ul>																			//listas nao ordenadas
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div
+                            <img src="/img/googlelogo.png" alt="imagem da google">								//img
+                            <div class="company-info">												//div
+                                <h3>Developer</h3>													//titulo mais pequeno
+                                <p>Google</p>														//paragrafo
+                            </div>
+                        </div>
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Mountain View, California</p>											//paragrafo
+                        </div>	
+                        <div class="job-type">														//div
+                            <span class="clt">CLT</span>												//span
+                        </div>
+                    </a>
+                </li>
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div	
+                            <img src="/img/ibmlogo.png" alt="imagem da ibm">									//img
+                            <div class="company-info">												//div
+                                <h3>DBA</h3>														//titulo mais pequeno
+                                <p>IBM</p>														//paragrafo
+                            </div>
+                        </div>																
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Armonk, New York</p>													//paragrafo
+                        </div>
+                        <div class="job-type">														//div
+                            <span class="pj">PJ</span>												//span
+                        </div>
+                    </a>
+                </li>																		
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div
+                            <img src="/img/linkedinlogo.png" alt="imagem do linkedin">							//img
+                            <div class="company-info">												//div
+                                <h3>Front-End Developer</h3>											//titulo mais pequeno
+                                <p>Linkedin</p>														//paragrafo
+                            </div>
+                        </div>	
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Sunnyvale, California</p>												//paragrafo
+                        </div>
+                        <div class="job-type">														//div
+                            <span class="homeoffice">Home Office</span>										//span
+                        </div>
+                    </a>
+                </li>                								
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div
+                            <img src="/img/facebooklogo.png" alt="imagem do facebook">							//img
+                            <div class="company-info">												//div
+                                <h3>Full Stack Developer</h3>											//titulo mais pequeno
+                                <p>Facebook</p>														//paragrafo
+                            </div>
+                        </div>
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Menlo Park, California</p>												//paragrafo
+                        </div>
+                        <div class="job-type">														//div
+                            <span class="pj">PJ</span>												//span
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="btnjobs-container">														//div
+                <a href="#" class="btnjobs">Ver mais vagas</a>											//hiperligação
+            </div>
+        </main>
+        <section id="sendjobs-container">													//section, secções menos importantes que o <main> (conteudo principal)
+            <div id="sendjobs-inner" class="wrapper">											//div
+                <h2>Envie uma vaga que será vista por milhares candidatos</h2>						//titulo mais pequeno
+                <p>Garantimos que a sua vaga será exposta assim que preencher os dados.</br>				//paragrafo
+                Esperemos que obtenha uma resposta rapidamente.</br>
+                Agradecemos a sua confiança<br>
+                E que com a nossa ajuda, encontre um trabalhador à altura!</br>
+                Até breve.</p>
+                <a href="#" class="light-btn">Enviar vaga</a>									//Botão com hiperligação
+		</div>
+	  </section>
+        <section id="status-container" class="wrapper">										//section, secções menos importantes que o <main> (conteudo principal)
+            <h2 class="title-center">Estatisticas do JobFinder</h2>								//titulo
+            <p class="p-center">As estatisticas serão atualizadas ao minuto.<br>Agradecemos o vosso 			//paragrafo
+		    apoio e temos muito prazer em fazer
+                parte do vosso futuro. <br> Boa sorte!
+            </p>
+            <div>																	//div "pai"
+                <div class="status-box">													//div
+                    <span class="status-qtd">150</span>										//span
+                    <p class="status-txt">Vagas abertas</p>										//paragrafo
+                </div>
+                <div class="status-box">													//div
+                    <span class="status-qtd">250</span>										//span
+                    <p class="status-txt">Candidatos contratados</p>								//paragrafo
+                </div>
+                <div class="status-box">													//div
+                    <span class="status-qtd">50</span>										//span
+                    <p class="status-txt">Empresas participantes</p>								//paragrafo
+                </div>
+                <div class="status-box">													//div
+                    <span class="status-qtd">550</span>										//span
+                    <p class="status-txt">Candidatos</p>										//paragrafo
+                </div>
+            </div>	
+        </section>	
+        <section id="testmony-container">													//section, secções menos importantes que o <main> (conteudo principal)
+            <div class="wrapper">														//div
+                <h2>Veja o que os candidatos dizem</h2>										//titulo mais pequeno
+                <p class="p-center">Aqui ficam algumas mensagens e provas dos nossos candidatos</p>			//paragrafo
+                <div class="testmony-box">												//div
+                    <p class="testmony-msg">Ajudou-me imenso no futuro, estava sem rumo e aqui				//paragrafo 
+				encontrei o caminho certo.<br>obrigado JobFinder pela oportunidade</p>
+                    <img src="/img/avatar1.png" alt="">										//imagem
+                    <p class="testmony-name">João</p>											//paragrafo
+                </div>
+                <div class="testmony-box">												//div
+                    <p class="testmony-msg">Incrivel como a nossa vida pode mudar de um dia para o outro! 		//paragrafo
+				Estava desempregado e encontrei um emprego incrivel.<br>
+                        obrigado JobFinder pela oportunidade
+                    </p>
+                    <img src="/img/avatar2.png" alt="">										//imagem
+                    <p class="testmony-name">Beatriz</p>										//paragrafo
+                </div>
+                <div class="testmony-box">												//div
+                    <p class="testmony-msg">Consegui ter sucesso e trabalhar naquilo que realmente gosto.		//paragrafo
+			      Sempre achei importante e só depois de conhecer 
+                   	este site é que consegui. <br> Obrigado JobFinder pela oportunidade</p>
+                    <img src="/img/avatar3.png" alt="">										//imagem
+                    <p class="testmony-name">Pedro</p>										//paragrafo
+                </div>
+                <div class="testmony-box">												//div
+                    <p class="testmony-msg">Encontrei a minha empresa de sonho, temos bom ambiente, 			//paragrafo
+				boas amizades e bons salarios! É tudo o que se pode pedir.<br>
+                        Obrigado JobFinder pela oportunidade
+                    </p>
+                    <img src="/img/avatar4.png" alt="">										//imagem
+                    <p class="testmony-name">Maria</p>										//paragrafo
+                </div>
+            </div>
+        </section>
+        <section id="blog-container" class="wrapper">											//section, secções menos importantes que o <main> (conteudo principal)
+            <h2 class="title-center">Últimos artigos</h2>										//titulo (mais pequeno)
+            <p class="p-center">Aqui encontram-se os nossos últimos artigos, atualizados ao minuto. <br>					//paragrafo
+                Podes ler todos os nossos artigos aqui em baixo.</p>
+            <div class="article-box">													//div
+                <img src="/img/blog1.jpg" alt="img blog">										//img
+                <h4><a href="#">Article title 1</a></h4>										//titulo (mais pequeno)
+                <p class="article-date">27 de junho de 2022 | 10 comentários</p>						//paragrafo
+                <p class="article-resume">resumo 1</p>										//paragrafo
+                <a href="#" class="article-btn light-btn">Ler post</a>								//botão com hiperligação
+            </div>
+            <div class="article-box">													//div
+                <img src="/img/blog1.jpg" alt="img blog">										//img
+                <h4><a href="#">Article title 1</a></h4>										//titulo (mais pequeno)
+                <p class="article-date">13 de junho de 2022 | 6 comentários</p>						//paragrafo
+                <p class="article-resume">resumo 2</p>										//paragrafo
+                <a href="#" class="article-btn light-btn">Ler post</a>								//botão com hiperligação
+            </div>
+            <div class="article-box">													//div
+                <img src="/img/blog1.jpg" alt="img blog">										//img
+                <h4><a href="#">Article title 1</a></h4>										//botão com hiperligação
+                <p class="article-date">22 de abril de 2022 | 12 comentários</p>						//paragrafo
+                <p class="article-resume">resumo 3</p>										//paragrafo
+                <a href="#" class="article-btn light-btn">Ler post</a>								//botão com hiperligação
+            </div>
+        </section>
+        <footer>																	//rodape
+            <div class="wrapper">														//div
+                <div class="footer-box">													//div
+                    <div class="company-footer">											//div
+                        <img src="/img/logo.png" alt="imagem do logo">								//img
+                        <h2>JobFinder</h2>												//titulo mais pequeno h2
+                        <p>A maneira mais fácil de encontrar o seu proximo emprego.</p>					//paragrafo
+                    </div>
+                </div>
+                <div class="footer-box">													//div
+                    <div class="article-footer"></div>										//div
+                    <h2>Artigos recentes</h2>												//titulo mais pequeno h2
+                    <ul class="footer-list footer-article-list">									//listas nao ordenadas
+                        <li>															//lista
+                            <a href="#">Como conseguir o primeiro emprego em tempos de crise?</a>			//frase com hiperligação
+                            <span class="article-date">05 de maio de 2022</span>						//span
+                        </li>
+                        <li>
+                            <a href="#">Como conseguir o primeiro emprego em tempos de crise?</a>			//frase com hiperligação
+                            <span class="article-date">05 de maio de 2022</span>						//span
+                        </li>
+                        <li>															//lista
+                            <a href="#">Como conseguir o primeiro emprego em tempos de crise?</a>			//frase com hiperligação
+                            <span class="article-date">05 de maio de 2022</span>						//span
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-box">													//div
+                    <h2>Encontre-nos nas redes sociais</h2>										//titulo mais pequeno h2
+                    <ul class="footer-list">												//listas nao ordenadas
+                        <li>															//listas
+                            <a href="#">													//hiperligação com:
+                                <i class="fab fa-facebook-square"></i>								//icon
+                                <span>Facebook</span>											//span
+                            </a>
+                        </li>
+                        <li>															//lista
+                            <a href="#">													//hiperligação com:
+                                <i class="fab fa-instagram"></i>									//icon
+                                <span>Instagram</span>										//span
+                            </a>
+                        </li>
+                        <li>															//lista
+                            <a href="#">													//hiperligação com:
+                                <i class="fab fa-linkedin"></i>									//icon
+                                <span>Linkedin</span>											//span
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">													//div
+                <div class="wrapper">													//div
+                    <p>Claudio Cunha - 2022</p>												//paragrafo
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>	     //jquery evento click
+    <script src="js/script.js"></script>													//parte javascript
+</body>
+</html>
+
+
+Parte final do nosso css:
+
+@media screen and (max-width: 576px){
+    .nav-container .btn-menumobile{
+        display: block !important;
+    }
+}
+
+Vamos dar continuidade para estilizar o icon que acrescentamos para o mobile, então dentro do @media screen and (max-width: 576px){}:
+
+@media screen and (max-width: 576px){									//quando a tela do utilizador chegar a 576px o css de baixo vai sobrepor o de cima(feito ate aqui)
+    .nav-container .btn-menumobile{										//icon e botão da nav
+        display: block !important;										//display block !important, para termos a certeza que o display(icon) aparece nessa resolução
+    }
+    
+    html,body{													//estilo geral para o html e body 
+        overflow-x: hidden;											//Para que o scroll lateral (barra de navegação lateral), não apareça na tela do mobile
+    }
+    nav{
+        height: 4em;												//altura 4em
+    }
+    #logo{
+        left: 2em;												//saltinho para a esquerda de 2em
+        height: 2em;												//altura 2em
+        width: 2em;												//largura 2 em
+        margin-top: 1em;											//margem de cima 1 em
+    }
+
+    .btn-menumobile{
+        display: block;												//display block para aparecer
+        font-size: 1.75em;											//tamanho 1.75
+        color: #CCC;												//cor cinza claro
+        position: absolute;											//posição absolute
+        right: 1.5em;												//saltinho para a direita 1.5em
+        top: 0.75em;												//saltinho para cima 0.75em
+    }
+
+    .nav-container ul{
+        position: relative;											//posição relative
+        top: 4em;													//saltinho para cima 4em
+        height: 3em;												//altura 3em
+        line-height: 3em;											//line-heigth 3em alinhar ao centro na vertical[juntamente com o de cima]
+        display: none;												//display none
+    }
+
+    .nav-container ul li{
+        display: block;												//display em bloco
+        background-color: #FFF;										//cor de fundo branco
+        margin: 0;												//margem 0
+        border-top: 1px solid #CCC;										//borda de cima 1px solid cinza claro
+    }
+
+    .nav-container ul li a{
+        font-size: 1em;												//tamanho da letra 1em
+    }
+
+    .open{														//adicionar esta class quando o utilizador clicar no botão
+        display: block !important;										//display block para que sempre que a class open entrar, a lista aparece
+    }
+}
+
+
+Agora vamos ao nosso JavaScript, ficheiro script.js:
+
+$(document).ready(function(){						//$ é o simbolo do jquery; quando o html(document) estiver carregado(.ready) executa a função(function(){
+    var btnMenuMobile= $(".btn-menumobile");			//função vai executar e definir que a variavel var btnMenuMobile é a nossa class do botão $(".btn-menumobile");
+
+    $(btnMenuMobile).on("click", function(){			//quando o meu botão (btnMenuMobile) for clicado (.on)("click") dispara outra função (function(){
+        $(".nav-container ul").toggleClass("open");		//as nossas listas (.nav-container ul)vão trocar de class se não existir a mesma class (.toggleClass("open");
+    })												//Se existir a mesma class (ou seja, quando o utilizador carrega no botão) ele tira a class
+}}
+Tudo resumido:
+Isto vai ter 3 ações
+Quando o html carregar, a nossa class vai ter ligação com aquela variavel: var btnMenuMobile ; 
+Depois quando clicarmos naquele botão(icon) as nossas listas vão aparecer;
+Se as nossas listas ja tiverem la, se o utilizador voltar a carregar no botão(icon) as nossas listas vao desaparecer
+
+
+Voltando ao css na parte do responsive mobile (576px):
+
+    #main-banner{
+        margin-top: 4em;															//margem de cima 4em
+    }
+
+    #search-form{
+        padding-top: 15em;															//espaço de cima 15em
+        padding-bottom: 5em;															//espaço de baixo 5em
+        width: 90%;																//largura 90%
+    }
+
+    #search-form h1{
+        font-size: 1.6em;															//tamanho da letra 1.6em
+    }
+
+    #search-form p{
+        font-size: 1em;																//tamanho da letra 1em
+        margin-bottom: 2em;															//margem de baixo 2em
+    }
+
+    #search-form form{
+        width: 80%;																//largura 80%
+    }
+
+    #search-form input[type=submit]{
+        margin-bottom: 0;															//tirar a margem de baixo
+    }
+
+    #last-jobs-container{
+        padding: 5em 0;																//espaçamento de 5em cima e baixo, 0 laterais
+    }
+
+    .locality{
+        display: none;																//tirar o display porque nao cabe
+    }
+
+    .company-box .company-info{
+        margin-top: 1em;															//margem de cima 1em
+        margin-left: 1em;															//margem da esquerda 1em
+        width: 8em;																//largura 8em
+    }
+
+    .company-box .company-info h3{
+        font-size: 0.8em;															//tamanho da letra 0.8em
+    }
+
+    .job-type{
+        width: 22%;																//largura 22%
+    }
+
+    #sendjobs-container{
+        background-position: 35% 0;														//posição da img de fundo 35em cima e baixo em 0 laterais
+        padding: 10em 0;															//espaçamento 10em cima e baixo 0 laterias
+    }
+
+    #sendjobs-container h2{
+        font-size: 1.5em;															//tamanho da letra 1.5em
+        width: 100%;																//largura 100%
+    }
+
+    #sendjobs-container p{
+        font-size: 1em;																//tamanho da letra 1 em
+        width: 100%;																//largura 100%
+    }
+
+    .status-box{
+        margin-top: 3em;															//margem de cima 3 em
+        width: 100%;																//largura 100%
+    }
+
+    .status-box:nth-child(1), .status-box:nth-child(3){
+        border: none;																//tirar as bordas do filho 1 e 3
+    }
+
+    #testmony-container{
+        padding: 5em 0;																//espaçamento 5em cima e baixo, 0 laterais
+    }
+
+    .testmony-box{
+        width: 100%;																//largura 100%
+    }
+
+    #testmony-container p{
+        margin-bottom: 1em;															//margem de baixo 1em
+    }
+
+    .footer-box{
+        display: block;																//display em bloco
+        width: 100%;																//100% largura
+    }
+}
+
+
+
+Agora vamos criar as paginas de encontrar vagas, no html:
+-Criar o ficheiro findjobs.html
+-Na parte dos links com hiperligação, mudamos o: <li><a href="#">Encontrar vaga</a></li> para: <li><a href="findjobs.html">Encontrar vaga</a></li>
+-Copiar tudo do index.html para o findjobs.html
+-remover todas as sections depois do main e antes do footer, porque não vamos utilizar
+-remover a div do main banner: <div id="main-banner">
+-Mudar o titulo do lastjobs-container:  <h1>Últimas vagas enviadas</h1> para: procure a sua vaga
+-Acrescentar ID na div <div class="container"> de id="findjobs"		
+-Criar uma div <div id="job-filter"> com:
+	-div <div id="search-form"> com:
+		-<form> com:
+			-caixa de texto com placeholder <input type="text" name="job" id="" placeholder="Escreve o cargo">
+			-select <select name="region" id=""> com:
+				-option <option value="">Todas as cidades</option>
+			-select <select name="category" id=""> com:
+                        -option <option value="">Categoria  </option>
+-criar uma div <div id="type-filter"> com:
+	-lista nao ordenada <ul> com:
+		-listas <li> com:
+			-botão de check <input type="checkbox" checked>
+                  -Nome em frente ao botão <label for="">CLT</label>
+		-copiar 3x e mudar o nome do cargo: CLT // PJ // Home Office // Free Lancer 
+-Mudar o nome do botão de ver mais vagas: <a href="#" class="btnjobs">Ver mais vagas</a> para: <a href="#" class="btnjobs">Carregar mais vagas</a>
+
+
+
+O nosso html da pagina findjobs.html fica:
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empregos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/0d22ec1ed3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container" id="findjobs">															//div com tudo do header dentro
+        <header>																			
+            <nav>																			//barra de navegação dentro da div
+                <div class="nav-container">														//div dentro da barra de nav
+			  <a href="index.html">															//hiperligação para a pagina principal
+                    	<img id="logo" src="img/logo.png" alt="jobfinder">									//img do logo
+			  </a>
+			  <i class="fas fa-bars btn-menumobile"></i>											//icon das tres linhas horizontais para o mobile
+                    <ul>																	//listas nao ordenadas
+                        <li><a href="findjobs.html">Encontrar vaga</a></li>									//lista encontrar..
+                        <li><a href="#">Enviar candidatura</a></li>										//lista enviar..
+                        <li><a href="#">Contacto</a></li>												//lista contacto
+                    </ul>
+                </div>
+            </nav>
+        </header>	
+        <main id="lastjobs-container"class="wrapper">													//main (secção de conteudo principal)
+            <h1>Procura a tua vaga</h1>															//titulo
+            <div id="job-filter">																//div
+                <div id="search-form">															//div
+                    <form>																	//formulario
+                        <input type="text" name="job" id="" placeholder="Escreve o cargo">						//caixa de texto
+                        <select name="region" id="">													//select
+                            <option value="">Todas as cidades</option>										//option
+                        </select>
+                        <select name="category" id="">												//select
+                            <option value="">Categoria  </option>											//option
+                        </select>
+                    </form>
+                </div>
+            </div>																		//div
+            <div id="type-filter">																//div
+                <ul>																		//listas nao ordenada
+                    <li>																	//lista
+                        <input type="checkbox" checked>												//caixa de check
+                        <label for="">CLT</label>													//nome em frente à caixa de check
+                    </li>
+                    <li>																	//lista
+                        <input type="checkbox" checked>												//caixa de check
+                        <label for="">PJ</label>													//nome em frente à caixa de check
+                    </li>
+                    <li>																	//lista
+                        <input type="checkbox" checked>												//caixa de check
+                        <label for="">Home Office</label>												//nome em frente à caixa de check
+                    </li>
+                    <li>																	//lista
+                        <input type="checkbox" checked>												//caixa de check
+                        <label for="">Free Lancer</label>												//nome em frente à caixa de check
+                    </li>
+                </ul>
+            </div>
+		<ul>																			//listas nao ordenadas
+		    <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div
+                            <img src="/img/linkedinlogo.png" alt="imagem do linkedin">							//img
+                            <div class="company-info">												//div
+                                <h3>Front-End Developer</h3>											//titulo mais pequeno
+                                <p>Linkedin</p>														//paragrafo
+                            </div>
+                        </div>	
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Sunnyvale, California</p>												//paragrafo
+                        </div>
+                        <div class="job-type">														//div
+                            <span class="homeoffice">Home Office</span>										//span
+                        </div>
+                    </a>
+                </li>                								
+                <li>																		//lista
+                    <a href="#"class="clickarea">													//hiperligação
+                        <div class="company-box">													//div
+                            <img src="/img/facebooklogo.png" alt="imagem do facebook">							//img
+                            <div class="company-info">												//div
+                                <h3>Full Stack Developer</h3>											//titulo mais pequeno
+                                <p>Facebook</p>														//paragrafo
+                            </div>
+                        </div>
+                        <div class="locality">														//div
+                            <i class="fas fa-map-marker-alt"></i>											//icon
+                            <p>Menlo Park, California</p>												//paragrafo
+                        </div>
+                        <div class="job-type">														//div
+                            <span class="pj">PJ</span>												//span
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="btnjobs-container">														//div
+                <a href="#" class="btnjobs">Carregar mais vagas</a>										//hiperligação
+            </div>
+        </main>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>	     //jquery evento click
+    <script src="js/script.js"></script>													//parte javascript
+</body>
+</html>
+
+
+
+
+
+Agora vamos ao css desta pagina:
+Antes do /*	responsive */ 
+
+fazemos:
+
+/* find jobs page */
+
+#findjobs #search-form{
+    padding-top: 2em;																	//espaço de cima 2em
+    padding-bottom: 2em;																//espaço de baixo 2em
+    width: 100%;																		//largura
+    background-color: #3381F3;															//cor de fundo azul
+    border-top: 5px solid rgba(5, 0, 0, 0.568);													//borda de cima preta
+}
+
+#findjobs #lastjobs-container{
+    margin-top: 3em;																	//margem de cima 3em
+}
+
+#search-form input, #search-form select{
+    width: 20%;																		//largura 20%
+}
+
+#findjobs #search-form input[type=submit]{
+    background-color: #FFF;																//cor de fundo branca
+    color: #3381F3																	//cor da letra azul
+}
+
+#findjobs #lastjobs-container ul{
+    border-top-left-radius: 0;															//borda de cima esquerda sem estar redonda
+    border-top-right-radius: 0;															//borda de cima direita sem estar redonda
+    margin-top: 0;																	//margem de cima 0
+}
+
+#type-filter{
+    text-align: left;																	//texto no lado esquerdo
+}
+
+#findjobs #type-filter ul{
+    margin: 0;																		//margem 0
+    border-radius: 0;																	//bordas sem estarem redondas							
+    border: 0;																		//tirar a borda à volta
+    background-color: #FFF;																//cor de fundo branco
+    border-right: 1px solid #CCC;															//borda direita 1px solid
+}
+
+#findjobs #type-filter ul li{
+    display: inline-block;																//display inline-block para ficar tudo lado a lado
+    width: 20%;																		//largura 20%
+    height: 50px;																		//altura 50px
+    line-height: 50px;																	//linha de altura 50px para deixar centrado na horizontal
+    border-bottom: none;																//sem borda de baixo
+    border-left: 1px solid #CCC;															//borda esquerda 1px solid cinzento claro
+    border-right: 1px solid #CCC;															//borda direita 1px solid cinzento claro
+    padding-left: 1em;																	//espaço esquerdo 1 em
+}
+
+#findjobs #type-filter ul li:nth-child(1),#findjobs #type-filter ul li:nth-child(2),#findjobs #type-filter ul li:nth-child(3){
+    border-right: none;																	//elemento 1,2,3 sem borda direito
+}
+
+#findjobs #type-filter label{
+    text-transform: uppercase;															//texto maiusculo
+    color: #666;																		//cor cinzento
+    font-weight: bold;																	//grossura da letra negrito
+    margin-left: 0.5em;																	//margem esquerda 0.5em
+}
+
+
+Ainda no nosso css:
+Na parte final do responsive de 1024px fazemos:
+
+/*find jobs page*/
+    #findjobs #search-form input[type=submit]{
+        margin-bottom: 0;																//margem de baixo 0
+    }
+
+    #findjobs #type-filter ul li{
+        width: 100%;																	//largura 100%
+        border-bottom: 1px solid #CCC;														//borda de baixo 1px solid cinzento
+        box-sizing: border-box;															//faz com que o elemento não ultrapasse o tamanho do elemento pai
+    }
+
+    #findjobs #type-filter ul li:last-child{
+        border-bottom: none;																//sem borda de baixo
+        border-right: none;																//sem borda direita
+    }
+
+
+
+Agora no html, vamos:
+-criar um arquivo com o nome "sendjobs.html" e colar o codigo todo do nosso index.html
+-acrescentar id "sendjobs" na div container: <div class="container" id="sendjobs"> 
+-apagar tudo da tag main e mudar o id de: lastjobs-container para: sendjobs-container
+	-colocar um titulo no main <h1>Preencha os dados da vaga</h1>
+-apagar as sections que não vão ser utilizadas: depois da tag main e antes do footer
+-apagar a div do banner <div id="main-banner">
+-na tag main, criamos um form com:
+	-div <div class="input-box"> com:
+		-label "titulo da vaga" e aquele * vermelho de campo obrigatorio: <label>Titulo da vaga <span class="required">*</span></label>  
+		-caixa de texto com "dica" <input type="text" name="jobtitle" id="" placeholder="Insere o titulo da vaga">
+	-copiar a div de cima e fazer as alterações necessarias, fica:
+      -div <div class="input-box"> com:
+		-nome <label>Descrição da vaga <span class="required">*</span></label>
+		-caixa de texto grande <textarea type="text" name="description" id="" placeholder="Insere a descrição da vaga"></textarea>        
+	-copiar a 1ª div de cima e fazer as alterações necessarias, fica:
+	-div <div class="input-box"> com:
+            -nome <label>Nome da empresa<span class="required">*</span></label>
+            -caixa de texto <input type="text" name="company" id="" placeholder="Insere o nome da empresa">
+	-copiar a 1ª div de cima e fazer as alterações necessarias, fica:
+	-div <div class="input-box"> com:
+             -nome <label>Tipo de contratação<span class="required">*</span></label>
+             -select <select name="jobtype" id="">
+             	-option <option value="">Escolhe uma opção</option>
+                  -option <option value="pj">pj</option>
+                  -option <option value="clt">CLT</option>
+			-option <option value="homeoffice">Home Office</option>
+                  -option <option value="freelancer">Free Lancer</option>
+	-copiar a 1ª div e fazer as alterações necessarias, fica:
+	-div <div class="input-box">
+      	-botão enviar <input type="submit" value="enviar" id="">
+
+
+O nosso codigo do sendjobs.html fica:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empregos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/0d22ec1ed3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container" id="sendjobs">													//div com tudo do header dentro
+        <header>																	
+            <nav>																	//barra de navegação dentro da div
+                <div class="nav-container">												//div dentro da barra de nav
+			  <a href="index.html">													//hiperligação para a pagina principal
+                    	<img id="logo" src="img/logo.png" alt="jobfinder">							//img do logo
+			  </a>
+			  <i class="fas fa-bars btn-menumobile"></i>									//icon das tres linhas horizontais para o mobile
+                    <ul>															//listas nao ordenadas
+                        <li><a href="#">Encontrar vaga</a></li>									//lista encontrar...
+                        <li><a href="#">Enviar candidatura</a></li>								//lista enviar...
+                        <li><a href="#">Contacto</a></li>										//lista contacto
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main id="sendjobs-container"class="wrapper">														//main (secção de conteudo principal)
+            <h1>Preencha os dados da vaga</h1>															//titulo
+            <form>																			//formulario
+                <div class="input-box">																//div
+                    <label>Titulo da vaga <span class="required">*</span></label>									//texto atras do input com * de obrigação
+                    <input type="text" name="jobtitle" id="" placeholder="Insere o titulo da vaga">						//caixa de texto
+                </div>
+                <div class="input-box">																//div
+                    <label>Descrição da vaga <span class="required">*</span></label>								//texto atras do input com * de obrigação
+                    <textarea type="text" name="description" id="" placeholder="Insere a descrição da vaga"></textarea>        	//caixa de texto grande
+                </div>
+                <div class="input-box">																//div
+                    <label>Nome da empresa<span class="required">*</span></label>									//nome atras do input
+                    <input type="text" name="company" id="" placeholder="Insere o nome da empresa">						//caixa de texto
+                </div>
+                <div class="input-box">																//div
+                    <label>Tipo de contratação<span class="required">*</span></label>								//nome atras do input com * de obrigação
+                    <select name="jobtype" id="">														//select
+                        <option value="">Escolhe uma opção</option>											//option
+                        <option value="pj">pj</option>													//option
+                        <option value="clt">CLT</option>													//option
+				<option value="homeoffice">Home Office</option>											//option
+                        <option value="freelancer">Free Lancer</option>											//option
+                    </select>
+		    </div>
+                <div class="input-box">																//div
+                    <input type="submit" value="enviar" id="">												//botão enviar
+                </div>             
+            </form>
+        </main>
+        <footer>																	//rodape
+            <div class="wrapper">														//div
+                <div class="footer-box">													//div
+                    <div class="company-footer">											//div
+                        <img src="/img/logo.png" alt="imagem do logo">								//img
+                        <h2>JobFinder</h2>												//titulo mais pequeno h2
+                        <p>A maneira mais fácil de encontrar o seu proximo emprego.</p>					//paragrafo
+                    </div>
+                </div>
+                <div class="footer-box">													//div
+                    <div class="article-footer"></div>										//div
+                    <h2>Artigos recentes</h2>												//titulo mais pequeno h2
+                    <ul class="footer-list footer-article-list">									//listas nao ordenadas
+                        <li>															//lista
+                            <a href="#">Como conseguir o primeiro emprego em tempos de crise?</a>			//frase com hiperligação
+                            <span class="article-date">05 de maio de 2022</span>						//span
+                        </li>
+                        <li>
+                            <a href="#">Como conseguir o primeiro emprego em tempos de crise?</a>			//frase com hiperligação
+                            <span class="article-date">05 de maio de 2022</span>						//span
+                        </li>
+                        <li>															//lista
+                            <a href="#">Como conseguir o primeiro emprego em tempos de crise?</a>			//frase com hiperligação
+                            <span class="article-date">05 de maio de 2022</span>						//span
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-box">													//div
+                    <h2>Encontre-nos nas redes sociais</h2>										//titulo mais pequeno h2
+                    <ul class="footer-list">												//listas nao ordenadas
+                        <li>															//listas
+                            <a href="#">													//hiperligação com:
+                                <i class="fab fa-facebook-square"></i>								//icon
+                                <span>Facebook</span>											//span
+                            </a>
+                        </li>
+                        <li>															//lista
+                            <a href="#">													//hiperligação com:
+                                <i class="fab fa-instagram"></i>									//icon
+                                <span>Instagram</span>										//span
+                            </a>
+                        </li>
+                        <li>															//lista
+                            <a href="#">													//hiperligação com:
+                                <i class="fab fa-linkedin"></i>									//icon
+                                <span>Linkedin</span>											//span
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">													//div
+                <div class="wrapper">													//div
+                    <p>Claudio Cunha - 2022</p>												//paragrafo
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>	     //jquery evento click
+    <script src="js/script.js"></script>													//parte javascript
+</body>
+</html>
+
+
+
+
+
+Agora vamos ao nosso css desta pagina:
+Antes do /* responsive */ escrevemos:
+
+/*send jobs page */
+#sendjobs #sendjobs-container{
+    margin-top: 100px;																//margem de cima 100px
+    background: none;																//tirar o background(img)
+    padding: 5em 0;																//espaçamento 5em cima e baixo, 0 laterais
+}
+
+#sendjobs h1{
+    font-size: 36px;																//tamanho da letra 36px
+    margin-bottom: 50px;															//margem de baixo 50px
+    text-align: center;																//texto alinhado ao centro
+}
+
+.input-box{
+    margin-bottom: 2em;																//margem de baixo 2em
+    width: 50%;																	//largura 50%
+    position: relative;																//posição relativa para ajudar a centralizar
+    margin-left: auto;																//margem esquerda auto para ajudar a centralizar
+    margin-right: auto;																//margem direita auto para ajudar a centralizar
+}
+
+#sendjobs label{
+    text-transform: uppercase;														//texto em maiusculas
+    color: #666;																	//cor cinza
+    font-weight: bold;																//grossura negrito
+    display: block;																//display block
+    margin-bottom: 1em;																//margem de baixo 1 em
+}
+
+#sendjobs input, #sendjobs textarea, #sendjobs select{
+    padding: 10px 20px;																//espaçamento 10px cima e baixo, 20 px laterais
+    font-size: 18px;																//tamanho da letra 18px
+}
+
+#sendjobs input{
+    border-radius: 5px;																//bordas redondas 5px
+    border: 1px solid #CCC;															//borda à volta 1px solid cinza
+    margin: 0;																	//margem 0
+    width: 100%;																	//largura 100%
+    box-sizing: border-box;															//faz com que o elemento não ultrapasse o tamanho do elemento pai
+}
+
+#sendjobs textarea, #sendjobs select{
+    border-radius: 5px;																//bordas redondas 5px
+    border: 1px solid #CCC;															//borda à volta 1px solid cinza
+    font-family: "Open Sans", sans-serif;													//tamanho e tipo de letra, "Open Sans" é uma font disponivel no css
+    margin: 0;																	//margem 0
+    width: 100%;																	//largura 100%
+    box-sizing: border-box;															//faz com que o elemento não ultrapasse o tamanho do elemento pai
+}
+
+#sendjobs input[type=submit]{
+    width: 200px;																	//largura 200%
+    float: right;																	//elemento à direita
+}
+
+.input-box:after{																	//o botão perdeu a margem porque deixamos o input com float
+    clear: both;																	//limpar o float
+    content: "";																	//content vazio
+    display: block;																//display block
+}
+
+Feito isto tudo, vamos à linha 126 do css, onde já temos um botão criado e no hover desse botão, adicionámos la este botão: #sendjobs input[type=submit]
+
+#search-form input[type=submit],#sendjobs input[type=submit] {
+    background-color: #3381F3;
+    text-transform: uppercase;
+    color: #FFF;
+    cursor: pointer;
+    transition: 0.5s;
+}
+#search-form input[type=submit]:hover,#sendjobs input[type=submit]:hover{
+    background-color: #003a91;
+}
+
+
+Agora vamos fazer o responsive da pagina para o telemovel ( 576px )
+Então no fim do @media screen and (max-width: 576px)
+fazemos:
+
+/* send jobs page */
+#sendjobs #sendjobs-container{
+	padding: 2em 0;
+}
+
+#sendjobs h1{
+      font-size: 2em;
+      width: 60%;
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+}
+
+.input-box{
+      width: 80%;
+}
+
+
+
+Então agora no html, vamos:
+
+Agora vamos:
+-No ficheiro index.html, nas hiperligações dos jobs <a href="#"class="clickarea"> na tag <main>, acrescentamos o job.html na hiperligação e fica: <a href="job.html"class="clickarea">
+-criar um arquivo com o nome "job.html" e colar o codigo todo do nosso index.html
+-Acrescentar id "jobpage" na div <div class="container"> fica: <div class="container" id="jobpage">
+-eliminar as sections que não vão ser utilizadas: depois da tag main e antes do footer
+-eliminar o banner do <header> a div <div id="main-banner">
+-eliminar o <main>
+-No fim do header </header>, criamos uma div <div id="job-header"> com:
+	-h1 <h1>Developer</h1>
+	-div <div id="job-info"> com:
+		-div <div class="job-type"> com:
+			-span <span class="clt">CLT</span>
+		-div <div class="locality"> com:
+			-<i class="fas fa-map-marker-alt"></i>
+                  -<p>Mountain View, California</p>
+		-div <div class="date">
+			-<i class="far fa-calendar-alt"></i>
+			-<p>Enviada há 3 dias</p>
+	-div <div class="wrapper"> com:
+		-main <main id="job-container"> com:
+			-div <div id="about-company-container"> com:
+				-h2 <h2 class="page-title">Sobre a empresa</h2>
+				-img <img src="/img/company.jpg" alt="company img" id="company-img">
+				-paragrafo <p class="description">Somos uma empresa ....</p>
+			-div <div id="about-job-container">
+				-h2 <h2 class="page-title">Sobre a vaga</h2>
+				-paragrafo <p class="description">We are looking for a Web Developer (m/f/d)...</p>
+			-div <div id="min-requirements-container"> com:
+				-h2 <h2 class="page-title">Requisitos minimos da vaga</h2>
+				-lista nao ordenada <ul> com:
+					-<li>Experiência comprovada como programador ou função relacionada</li>
+                        	-<li>Capacidade de programar em linguagens comoC++, Java (J2EE), XML, Python etc.</li>
+                        	-<li>Experiência no desenvolvimento de aplicativos web com a utilização de pelo menos uma estrutura web conhecida (JSF, Wicket, GWT, Spring MVC)</li>
+                  	      -<li>Excelente conhecimento de tecnologias de bancos de dados relacionais, SQL e ORM</li>
+            	            -<li>Orientado a detalhes e com excelente capacidade de concentração</li>
+      	                  -<li>Mentalidade analítica e pensamento crítico</li>
+	                        -<li>Capacidade demonstrável para descobrir e corrigir erros em códigos</li>
+		-aside <aside id="company-info-container"> com:
+			-img <img src="/img/googlelogo.png" alt="google Logo">
+			-div <div class="job-type"> com:
+				-<span class="clt">CLT</span>
+			-botão com hiperligação <a href="" id="apply-btn">Candidata-te</a>
+			-div <div class="companysocial-container"> com:
+				-lista nao ordenada <ul id="job-social-list"> com:
+					-lista <li> com:
+						-hiperligação <a href=""> com:
+							-icon <i class="fab fa-facebook-square"></i>
+							-span <span>Facebook</span>
+					-copiar 2x e mudar as informações
+					-lista <li> com:
+						-hiperligação <a href=""> com:
+							-icon <i class="fab fa-instagram"></i>
+							-span <span>Instagram</span>
+					-lista <li> com:
+						-hiperligação <a href=""> com:
+							-icon <i class="fab fa-linkedin"></i>
+							-span <span>Linkedin</span>
+
+
+O nosso codigo fica:
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empregos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/0d22ec1ed3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container" id="jobpage">													//div com tudo do header dentro
+        <header>																	
+            <nav>																	//barra de navegação dentro da div
+                <div class="nav-container">												//div dentro da barra de nav
+			  <a href="index.html">													//hiperligação para a pagina principal
+                    	<img id="logo" src="img/logo.png" alt="jobfinder">							//img do logo
+			  </a>
+			  <i class="fas fa-bars btn-menumobile"></i>									//icon das tres linhas horizontais para o mobile
+                    <ul>															//listas nao ordenadas
+                        <li><a href="findjobs.html">Encontrar vaga</a></li>							//lista encontrar...
+                        <li><a href="sendjobs.html">Enviar candidatura</a></li>						//lista enviar...
+                        <li><a href="#">Contacto</a></li>										//lista contacto
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div id="job-header">															//div
+            <h1>Developer</h1>														//titulo
+            <div id="job-info">														//div
+                <div class="job-type">													//div
+                    <span class="clt">CLT</span>											//span
+                </div>
+                <div class="locality">													//div
+                    <i class="fas fa-map-marker-alt"></i>										//icon
+                    <p>Mountain View, California</p>											//paragrafo
+                </div>
+                <div class="date">														//div
+                    <i class="far fa-calendar-alt"></i>										//icon
+                    <p>Enviada há 3 dias</p>												//paragrafo
+                </div>
+            </div>
+        </div>
+        <div class="wrapper">															//div
+            <main id="job-container">													//main
+                <div id="about-company-container">											//div
+                    <h2 class="page-title">Sobre a empresa</h2>									//titulo mais pequeno
+                    <img src="/img/company.jpg" alt="company img" id="company-img">						//img
+                    <p class="description">												//paragrafo
+				Somos uma empresa multinacional de serviços online e software dos Estados Unidos.</br>
+                        O Google hospeda e desenvolve uma série de serviços e produtos baseados na internet.</br>
+                        Gera lucro principalmente através da publicidade pelo AdWords.</br>
+                        A Google é a principal subsidiária da Alphabet Inc.[11]</p>
+                </div>
+                <div id="about-job-container">												//div
+                    <h2 class="page-title">Sobre a vaga</h2>									//titulo mais pequeno
+                    <p class="description">												//paragrafo
+                        We are looking for a Web Developer (m/f/d) to join and support our R&D 
+				Team in Porto and work on and optimize exciting projects related to 
+				Google AR solutions with the help of Angular or React, and Java
+                    </p>
+                </div>
+                <div id="min-requirements-container">											//div
+                    <h2 class="page-title">Requisitos minimos da vaga</h2>							//titulo mais pequeno
+                    <ul>															//lista não ordenada
+                        <li>Experiência comprovada como programador ou função relacionada</li>				//lista
+                        <li>Capacidade de programar em linguagens comoC++, Java (J2EE), XML, Python etc.</li>	//lista
+                        <li>Experiência no desenvolvimento de aplicativos web com a utilização de pelo menos uma estrutura web conhecida (JSF, Wicket, GWT, Spring MVC)</li>	//lista
+                        <li>Excelente conhecimento de tecnologias de bancos de dados relacionais, SQL e ORM</li>	//lista
+                        <li>Orientado a detalhes e com excelente capacidade de concentração</li>			//lista
+                        <li>Mentalidade analítica e pensamento crítico</li>							//lista
+                        <li>Capacidade demonstrável para descobrir e corrigir erros em códigos</li>			//lista
+                    </ul>
+                </div>
+                <div id="job-benefits-container">											//div
+                    <h2 class="page-title">Beneficios da vaga</h2>								//titulo mais pequeno
+                    <ul>															//lista não ordenada
+                        <li>Salario +1500eur</li>											//lista
+                        <li>Uma viagem por ano, tudo pago pela empresa para 2 pessoas</li>				//lista
+                        <li>22 dias uteis de ferias</li>										//lista
+                        <li>Escolha do tipo de trabalho: Remoto ou presencial</li>						//lista
+                        <li>Formações pagas caso seja na area</li>								//lista
+                        <li>Equipa unida e tranquila</li>										//lista
+                        <li>Um jantar por semana para uma reunião em grupo, tudo pago pela empresa</li>		//lista
+                    </ul>
+                </div>
+            </main>
+            <aside id="company-info-container">												//aside, é um conteudo lateral, tipo "section lateral"
+                <img src="/img/googlelogo.png" alt="google Logo">									//img
+                <div class="job-type">													//div
+                    <span class="clt">CLT</span>											//span
+                </div>
+                <a href="" id="apply-btn">Candidata-te</a>										//botão com hiperligação
+                <div class="companysocial-container">											//div
+                    <ul id="job-social-list">												//lista não ordenada
+                        <li>															//lista
+                            <a href="">													//hiperligação
+                                <i class="fab fa-facebook-square"></i>								//icon
+                                <span>Facebook</span>											//span
+                            </a>
+                        </li>
+                        <li>															//lista
+                            <a href="">													//hiperligação
+                                <i class="fab fa-instagram"></i>									//icon
+                                <span>Instagram</span>										//span
+                            </a>
+                        </li>
+                        <li>															//lista
+                            <a href="">													//hiperligação
+                                <i class="fab fa-linkedin"></i>									//icon
+                                <span>Linkedin</span>											//span
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+        <footer>																	//rodape
+            <div class="wrapper">														//div
+                <div class="footer-box">													//div
+                    <div class="company-footer">											//div
+                        <img src="/img/logo.png" alt="imagem do logo">								//img
+                        <h2>JobFinder</h2>												//titulo mais pequeno h2
+                        <p>A maneira mais fácil de encontrar o seu proximo emprego.</p>					//paragrafo
+                    </div>
+                </div>
+                <div class="footer-box">													//div
+                    <div class="article-footer"></div>										//div
+                    <h2>Artigos recentes</h2>												//titulo mais pequeno h2
+                    <ul class="footer-list footer-article-list">									//listas nao ordenadas
+                        <li>															//lista
+                            <a href="#">Como conseguir o primeiro emprego em tempos de crise?</a>			//frase com hiperligação
+                            <span class="article-date">05 de maio de 2022</span>						//span
+                        </li>
+                        <li>
+                            <a href="#">Como conseguir o primeiro emprego em tempos de crise?</a>			//frase com hiperligação
+                            <span class="article-date">05 de maio de 2022</span>						//span
+                        </li>
+                        <li>															//lista
+                            <a href="#">Como conseguir o primeiro emprego em tempos de crise?</a>			//frase com hiperligação
+                            <span class="article-date">05 de maio de 2022</span>						//span
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-box">													//div
+                    <h2>Encontre-nos nas redes sociais</h2>										//titulo mais pequeno h2
+                    <ul class="footer-list">												//listas nao ordenadas
+                        <li>															//listas
+                            <a href="#">													//hiperligação com:
+                                <i class="fab fa-facebook-square"></i>								//icon
+                                <span>Facebook</span>											//span
+                            </a>
+                        </li>
+                        <li>															//lista
+                            <a href="#">													//hiperligação com:
+                                <i class="fab fa-instagram"></i>									//icon
+                                <span>Instagram</span>										//span
+                            </a>
+                        </li>
+                        <li>															//lista
+                            <a href="#">													//hiperligação com:
+                                <i class="fab fa-linkedin"></i>									//icon
+                                <span>Linkedin</span>											//span
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">													//div
+                <div class="wrapper">													//div
+                    <p>Claudio Cunha - 2022</p>												//paragrafo
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>	     //jquery evento click
+    <script src="js/script.js"></script>													//parte javascript
+</body>
+</html>
+
+
+
+
+
+Agora no nosso css:
+Antes do responsive..
+
+/* job page */
+#job-header{
+    width: 100%;																		//largura 100%
+    background-color: #FAFAFA;															//cor de fundo branca
+    border-bottom: 1px solid #CCC;															//borda de cima 1px solid cinza
+    margin-top: 100px;																	//margem de cima 100px
+    padding: 2em 0;																	//espaçamento 2em cima e baixo, 0 laterais
+}
+
+#job-header h1{
+    font-size: 3em;																	//tamanho da letra 3em
+    text-align: center;																	//texto ao centro
+}
+
+#job-header .company-box{
+    width: 100%;																		//largura 100%
+}
+
+#job-header #job-info{
+    height: 100px;																	//altura 100px
+    width: 100%;																		//largura 100%
+    margin-top: 3em;																	//margem de cima 3em
+    text-align: center;																	//texto ao centro
+}
+
+#job-header #job-info div{
+    width: 25%;																		//largura 25%
+    height: 30px;																		//altura 30px
+    line-height: 30px;																	//linha de altura 50px para deixar centrado na horizontal
+    float: left;																		//elemento na esquerda
+    position: relative;																	//posição relative
+    padding-left: 3em;																	//espaçamento esquerdo 3em
+    padding-right: 3em;																	//espaçamento direito 3em
+    box-sizing: border-box;																//box sizing border box para o elemento nao ultrapassar a borda
+    padding-top: 0;																	//espaçamento de cima 0
+}
+
+#job-header #job-info .job-type{
+    padding-top: 5px;																	//espaçamento de cima 5px
+    margin-left: 12.5%;																	//margem esquerda 12.5%
+
+}
+
+#job-info .date i, #job-info .date p{
+    display: inline-block;																//display inline-block para os elementos ficarem lado a lado
+    color: #666;																		//cor da letra cinza
+}
+
+#job-info .date p{
+    margin-left: 10px;																	//margem esquerda 10px
+}
+
+#job-header #job-info div:nth-child(2){
+    border-left: 1px solid #CCC;															//borda esquerda 1px solid cinza
+    border-right: 1px solid #CCC;															//borda direita 1px solid cinza
+}
+
+#jobpage .wrapper{
+    padding: 2em 0;																	//espaçamento 2em cima e baixo, 0 laterais
+}
+
+#jobpage .wrapper:after{
+    clear: both;																		//limpar o float
+    content: "";																		//content vazio
+    display: block;																	//display block
+}
+
+#job-container{
+    float: left;																		//elemento à esquerda
+    width: 75%;																		//largura 75%
+    position: relative;																	//posição relativa
+}
+
+#jobpage .page-title{
+    font-size: 24px;																	//tamanho da letra 24px
+    margin-bottom: 1.5em;																//margem de baixo 1.5em
+}
+
+#jobpage .description{
+    margin-bottom: 1.5em;																//margem de baixo 1.5em
+}
+
+#company-img{
+    width: 100%;																		//largura 100%
+    margin-bottom: 1.5em;																//margem de baixo 1.5em
+}
+
+#company-info-container{
+    float: right;																		//elemento à direita
+    width: 25%;																		//largura 25%
+    padding-top: 4em;																	//espaçamento de cima 4em
+    padding-left: 1.5em;																//espaçamento esquerdo 1.5em
+    box-sizing: border-box;																//box sizing border box para o elemento nao ultrapassar a borda
+}
+
+.job-list{
+    color: #666;																		//cor da letra
+    margin-bottom: 1.5em;																//margem de baixo 1.5em
+    font-size: 1em;																	//tamanho da letra 1em
+    line-height: 2em;																	//altura da linha 2 em
+}
+
+#company-info-container img{
+    width: 100%;																		//largura 100%
+    display: block;																	//display block
+    border-bottom: 1px solid #CCC;															//borda de baixo 1px solid 
+}
+
+#company-info-container .job-type{
+    display: block;																	//display block
+    position: relative;																	//posição relative
+    width: 100%;																		//largura 100%
+    padding: 2em 0;																	//espaçamento 2em cima e baixo, 0 laterais
+    border-bottom: 1px solid #CCC;															//borda de baixo 1px solid
+}
+
+#apply-btn{
+    width: 100%;																		//largura 100%
+    height: 60px;																		//altura 60px
+    line-height: 60px;																	//altura da linha 60px
+    margin-top: 2em;																	//margem de cima 2em
+    font-weight: bold;																	//grossura da letra negrito
+    text-transform: uppercase;															//texto em maiusculo
+    text-decoration: none;																//tirar o sublinhado
+    background-color: transparent;															//fundo transparente
+    border: 2px solid #3381F3;															//borda 2px solid
+    color: #3381F3;																	//cor da letra
+    border-radius: 5px;																	//bordas redondas 5px
+    display: block;																	//display block
+    box-sizing: border-box;																//box sizing border box para o elemento nao ultrapassar a borda
+    text-align: center;																	//texto ao centro
+    transition: 0.5s;																	//transição 0.5segundos
+}
+
+#apply-btn:hover{
+    background-color: #3381F3;															//cor de fundo azul
+    color: #FFF;																		//cor da letra branca
+}
+
+#job-social-list{
+    margin-top: 1em;																	//margem de cima 1em
+    padding-left: 0;																	//espaçamento esquerdo 0
+}
+
+#job-social-list li{
+    display: block;																	//display block
+    list-style: none;																	//tirar as bolinhas
+    height: 50px;																		//altura 50px
+}
+
+#job-social-list li a{
+    text-decoration: none;																//tirar sublinhado
+    color: rgb(12, 0, 143);																//cor da letra
+}
+
+
+
+Agora vamos fazer o responsive desta pagina:
+Então no fim do @media screen and (max-width: 1024px)
+
+/* job page */
+#job-header #job-info div{
+	padding-left: 1em;																//espaçamento da esquerda 1em
+      padding-right: 1em;																//espaçamento da direita 1em
+}
+
+#jobpage .wrapper{
+      padding-left: 2em;																//espaçamento da esquerda 2em
+      padding-right: 2em;																//espaçamento da direita 2em
+}
+
+#job-header #job-info .job-type{
+     margin-left: 5%;																	//margem esquerda 5%
+}
+
+#job-header #job-info div{
+     width: 30%;																		//largura 30%
+}
+
+
+Feito isto no 1024, vamos para o mobile:
+Então no fim do @media screen and (max-width: 576px)
+
+/* job page */
+#job-container{
+	width: 100%;																	//largura 100%
+}
+
+#company-info-container{
+      width: 100%;																	//largura 100%
+      padding-top: 0;																	//espaçamento de cima 0
+      padding-left: 0;																	//espaçamento da esquerda 0
+}
+
+#job-header{
+      margin-top: 4em;																	//margem de cima 4em
+}
+
+#job-header .locality{
+      display: block;																	//display em block
+}
+
+#job-header #job-info div{
+      height: 100%;																	//altura 100%
+}
+
+#job-header #job-info .job-type{
+      padding-top: 35px;																//espaçamento de cima 35px
+}
+
+#company-info-container .job-type{
+      right: 0;																		//direita 0
+}
+
+#apply-btn{
+      margin-bottom: 3em;																//margem de baixo 3em
+}

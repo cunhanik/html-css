@@ -1,0 +1,53 @@
+html
+
+<h1> titulo </h1>												//titulo principal
+<h2> titulo </h2>												//titulo tamanho menor em comparação com o h2
+<h3> titulo </h3>												//titulo tamanho menor em comparação com o h3
+<h4> titulo </h4>												//titulo tamanho menor em comparação com o h4
+<h5> titulo </h5>												//titulo tamanho menor em comparação com o h5
+<h6> titulo </h6>												//titulo tamanho menor em comparação com o h6
+<p> Escrever o texto que quisermos </p>								//paragrafo 
+<a href= "https://www.google.com"> ir para o Google </a>					//elemento com hiperligação para o link, com o nome "ir para o google"
+
+<div>														//divisão
+	<a href= "https://www.google.com" target="_blank"> ir para o google </a>	//elemento com hiperligação para o link, com o nome "ir para o google" que abre o link NOUTRA PAGINA
+</div>
+<img src="minha imagem.jpg" alt="descrição da imagem">						//Colocar uma imagem no nosso site, mas atenção, essa imagem é de uma imagem do nosso PC e tem que estar na mesma pasta que o nosso ficheiro html. o alt é uma "descriçao da imagem"
+<img src="http://arquivo.devmedia.com.br/marketing/img/curso-curso-de-html-basico-371.png" alt="imagem do simbolo HTML">	//Colocar uma imagem no nosso site, mas agora com o endereço de imagem colado
+<!-- comentario -->											//Comentario
+</br>														//Muda de linha (quebra a linha)
+<hr />													//horizontal row (cria uma linha horizontal) para quebra de linha
+<ol> <li> </li> </ol>											//ordered list <ol> e list <li>
+<li> </li>													//list (têm que estar dentro da tag <ol>, indicam a ordem das coisas, ex:
+<ol>
+	<li> Primeiro faça isto </li>
+	<li> Segundo isto </li>
+	<li> Terceiro isto </li>
+</ol>
+
+No site aparece:
+1. Primeiro faça isto
+2. Segundo isto
+3. Terceiro isto
+
+<ul> <li> </li> </ul>											//unordered list (lista não ordenada)<ul> e list <li>, ex:
+<ul>
+	<li> Item 1 </li>
+	<li> Item 2 </li>
+	<li> Item 3 </li>
+</ul>
+
+No site aparece:
+• Item 1
+• Item 2
+• Item 3
+
+<p> se quiseremos escrever uma palavra em <b>NEGRITO</b> </p>				//Escrever em negrito, neste caso a palavra "NEGRITO"
+<p> se quiseremos escrever uma palavra em <strong>NEGRITO</strong> </p>			//Escrever em negrito, neste caso a palavra "NEGRITO", a tag <strong></strong> add semântica ao codigo
+<p> se quiseremos escrever uma palavra em <i>ITALÍCO</i> </p>				//Escrever em italíco, neste caso a palavra "ITALÍCO"
+<p> se quiseremos escrever uma palavra em <em>ITALÍCO</em> </p>				//Escrever em italíco, neste caso a palavra "ITALÍCO", a tag <em></em> adiciona semântica ao codigo
+//Ver html semântico
+<nav> <ul></ul> </nav>											//Barra de navegação, com uma lista nao ordenada dentro <ul></ul>
+<section>													//divisão, "secção" do nosso site que tem um proposito
+<footer>													//Rodapé
+Vamos criar um mini projeto:
